@@ -1,0 +1,386 @@
+[
+    {
+        "model": "movies.quiz1",
+		"fields": {
+            "question": "어떤 영화가 가장 많은 아카데미 시상식 수상 기록을 가지고 있는가?",
+            "options": [
+                "기생충",
+                "베놈",
+                "타이타닉"
+            ],
+            "answer": "타이타닉"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '인셉션'의 감독은 누구인가요?",
+        "options": [
+            "스티븐 스필버그",
+            "크리스토퍼 놀란",
+            "마틴 스콜세지"
+        ],
+        "answer": "크리스토퍼 놀란"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '터미네이터2'에서 터미네이터 역을 맡은 인물은?",
+        "options": [
+            "아놀드 슈워제네거",
+            "톰 행크스",
+            "짐 캐리"
+        ],
+        "answer": "아놀드 슈워제네거"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '라이온 킹'의 주제곡은 무엇인가요?",
+        "options": [
+            "Can You Feel the Love Tonight",
+            "Hakuna Matata",
+            "Circle of Life"
+        ],
+        "answer": "Circle of Life"
+    }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '해리포터' 시리즈의 작가는 누구인가요?",
+        "options": [
+            "J.K. 롤링",
+            "스테파니 메이어",
+            "조지 R.R. 마틴"
+        ],
+        "answer": "J.K. 롤링"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '타이타닉'의 주인공은 누구인가요?",
+        "options": [
+            "잭 도슨",
+            "로즈 드윗 부케이터",
+            "칼 호커"
+        ],
+        "answer": "잭 도슨"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '인터스텔라'의 감독은 누구인가요?",
+        "options": [
+            "스티븐 스필버그",
+            "크리스토퍼 놀란",
+            "마틴 스콜세지"
+        ],
+        "answer": "크리스토퍼 놀란"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 마블 스튜디오의 영화가 아닌 것은?",
+        "options": [
+            "블랙 위도우",
+            "어벤져스",
+            "저스티스리그"
+        ],
+        "answer": "저스티스리그"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '해리포터와 마법사의 돌'의 개봉년도는 언제인가요?",
+        "options": [
+            "2001년",
+            "2005년",
+            "1998년"
+        ],
+        "answer": "2001년"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '겨울왕국'의 주제곡은 무엇인가요?",
+        "options": [
+            "Let It Go",
+            "Do You Want to Build a Snowman?",
+            "For the First Time in Forever"
+        ],
+        "answer": "Let It Go"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '스타워즈' 시리즈의 감독은 누구인가요?",
+        "options": [
+            "조지 루카스",
+            "스티븐 스필버그",
+            "제임스 카메론"
+        ],
+        "answer": "조지 루카스"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '인터스텔라'의 주제곡은 무엇인가요?",
+        "options": [
+        "Interstellar",
+        "No Time for Caution",
+        "Stay"
+        ],
+        "answer": "No Time for Caution"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '토이 스토리' 시리즈의 주인공은 누구인가요?",
+        "options": [
+            "우디",
+            "갤럭시 버즈",
+            "에어팟 프로"
+        ],
+        "answer": "우디"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '어바웃 타임'의 감독은 누구인가요?",
+        "options": [
+            "리차드 커티스",
+            "크리스토퍼 놀란",
+            "마틴 스콜세지"
+        ],
+        "answer": "리차드 커티스"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '해리포터와 불의 잔'의 주인공은 누구인가요?",
+        "options": [
+            "해리 포터",
+            "홀란드",
+            "리오넬 메시"
+        ],
+        "answer": "해리 포터"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '라라랜드'의 개봉년드는 언제인가요?",
+        "options": [
+            "2012년",
+            "2020년",
+            "2016년"
+        ],
+        "answer": "2016년"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 마블 시리즈 주인공 토르가 새로운 무기를 만들어 낸 장면이 있는 영화는 무엇인가요?",
+        "options": [
+            "토르: 러브 앤 썬더",
+            "토르: 라그나로크",
+            "어벤져스: 앤드게임"
+        ],
+        "answer": "어벤져스: 앤드게임"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 아이언맨이 죽음을 맞이하는 장면은 어느 영화인가요?",
+        "options": [
+            "어벤져스: 엔드게임",
+            "아이언맨3",
+            "가디언즈오브 갤럭시: Volume 3"
+        ],
+        "answer": "어벤져스: 엔드게임"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 스파이더맨이 등장하지 않는 영화는 무엇인가요?",
+        "options": [
+            "캡틴 아메리카: 시빌 워",
+            "어벤져스: 엔드게임",
+            "어벤져스"
+        ],
+        "answer": "어벤져스"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '어벤져스: 엔드게임'에서 가장 많은 캐릭터가 동시에 등장한 장면은 어디인가요?",
+        "options": [
+            "타노스와의 싸움",
+            "도시 싸움 장면",
+            "워커 연못 장면"
+        ],
+        "answer": "타노스와의 싸움"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '해리포터와 비밀의 방'의 주인공은 누구인가요?",
+        "options": [
+        "해리 포터",
+        "뉴트 스캐맨더",
+        "퀴니 골드스틴"
+        ],
+        "answer": "해리 포터"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 우주와 관련없는 영화는 무엇인가요?",
+        "options": [
+            "인터스텔라",
+            "그래비티",
+            "신세계"
+        ],
+        "answer": "신세계"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '어벤져스: 엔드게임'에서 토르가 등장한 장면은 어디인가요?",
+        "options": [
+            "타노스와의 싸움",
+            "아스가르드 전투 장면",
+            "도시 싸움 장면"
+        ],
+        "answer": "아스가르드 전투 장면"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '겨울왕국'에서 엘사가 노래하는 곡은 무엇인가요?",
+        "options": [
+            "Let It Go",
+            "Do You Want to Build a Snowman?",
+            "For the First Time in Forever"
+        ],
+        "answer": "Let It Go"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '라이언 일병 구하기'에서 등장하지 않은 배우는 누구인가요?",
+        "options": [
+            "톰 행크스",
+            "맷 데이먼",
+            "일라이저 우드"
+        ],
+        "answer": "일라이저 우드"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '그래비티'의 주인공은 누구인가요?",
+        "options": [
+            "라이언 스톤",
+            "톰",
+            "멀러"
+        ],
+        "answer": "라이언 스톤"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 '진행시켜!'로 유명한 배우 이경영이 등장하지 않은 영화는 무엇인가요?",
+        "options": [
+            "해적: 바다로 간 산적",
+            "내부자들",
+            "극한직업"
+        ],
+        "answer": "극한직업"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 호그와트와 관련 없는 영화는 무엇인가요?",
+        "options": [
+            "해리포터",
+            "신비한 동물사전",
+            "분노의 질주"
+        ],
+        "answer": "분노의 질주"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '스타워즈' 시리즈의 제7편 제목은 무엇인가요?",
+        "options": [
+            "스타워즈: 깨어난 포스",
+            "스타워즈: 로그 원 스토리",
+            "스타워즈: 제국의 역습"
+        ],
+        "answer": "스타워즈: 깨어난 포스"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 영화 '마션'에서 키워낸 작물은 무엇인가요?",
+        "options": [
+            "벼",
+            "보리",
+            "감자"
+        ],
+        "answer": "감자"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 천만관객의 영화가 아닌 것은 무엇인가요?",
+        "options": [
+            "극한직업",
+            "인터스텔라",
+            "한산:용의출현"
+        ],
+        "answer": "한산:용의출현"
+        }
+    },
+    {
+        "model": "movies.quiz1",
+		"fields": {
+        "question": "다음 중 배우 하정우가 등장하지 않은 영화는 무엇인가요?",
+        "options": [
+            "베를린",
+            "신과함께",
+            "명량"
+        ],
+        "answer": "명량"
+        }
+    }
+]
