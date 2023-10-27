@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>아임파인</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="input.css" />
+  <script src="cute-alert.js"></script>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <!-- 글자수 초과시 error 팝업 띄우기-->
+  <div class="inputBox">
+    <input type="text" required="required">
+    <span>어떤 모델을 만드시겠습니까?</span>
+  </div>
+
+  <div>
+    <!-- <button class="btn btn-success" id="success">Success</button>
+    <button class="btn btn-error" id="error">error</button>
+    <button class="btn btn-warning" id="warning">Warning</button>
+    <button class="btn btn-info" id="info">Info</button>
+    <button class="btn btn-danger" id="confirm">Confirm</button>
+    <button class="btn btn-primary" id="toast">Toast</button> -->
+  </div>
+  <script src="cute-alert.js"></script>
+  <script>
+    var success = document.getElementById("success");
+    success.addEventListener("click", () => {
+      cuteAlert({
+        type: "success",
+        title: "Success Title",
+        message: "Success Message",
+        buttonText: "Okay"
+      })
+    })
+
+    var error = document.getElementById("error");
+    error.addEventListener("click", () => {
+      cuteAlert({
+        type: "error",
+        title: "Error Title",
+        message: "Error Message",
+        buttonText: "Okay"
+      })
+    })
+
+    var warning = document.getElementById("warning");
+    warning.addEventListener("click", () => {
+      cuteAlert({
+        type: "warning",
+        title: "Warning Title",
+        message: "Warning Message",
+        buttonText: "Okay"
+      })
+    })
+
+    var info = document.getElementById("info");
+    info.addEventListener("click", () => {
+      cuteAlert({
+        type: "info",
+        title: "Info Title",
+        message: "Info Message",
+        buttonText: "Okay"
+      })
+    })
+
+    var confirm = document.getElementById("confirm");
+    confirm.addEventListener("click", () => {
+      cuteAlert({
+        type: "question",
+        title: "Confirm Title",
+        message: "Confirm Message",
+        confirmText: "Okay",
+        cancelText: "Cancel"
+      }).then((e) => {
+        if (e == ("Thanks")) {
+        } else {
+          alert(":-(");
+        }
+      })
+    })
+
+    var toast = document.getElementById("toast");
+    toast.addEventListener("click", () => {
+      cuteToast({
+        type: "success",
+        message: "Info Message",
+        timer: 5000
+      })
+    })
+  </script>
+</body>
+<style>
+  .span {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+</style>
+
+</html>
