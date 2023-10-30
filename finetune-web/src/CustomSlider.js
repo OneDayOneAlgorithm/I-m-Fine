@@ -44,4 +44,11 @@ const CustomSlider = styled(Slider)({
   },
 });
 
+<<<<<<< PATCH SET (8764f3 Feat: 파라미터 페이지 완료)
+export default CustomSlider;
+// dd
+
+
+=======
 export default CustomSlider
+>>>>>>> BASE      (67c765 Feat: web 모델페이지 완료)
