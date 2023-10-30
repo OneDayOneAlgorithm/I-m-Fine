@@ -44,6 +44,6 @@ const CustomSlider = styled(Slider)(({ data }) => ({
 }));
 
 export default CustomSlider;
-
+// dd
 
 
