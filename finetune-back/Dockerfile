@@ -1,4 +1,4 @@
-FROM python:3.8s
+FROM python:3.8
 
 COPY ./src /src
 WORKDIR /src
