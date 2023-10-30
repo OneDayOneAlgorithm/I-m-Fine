@@ -1,0 +1,90 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.div-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* 뷰포트 높이의 100% */
+  background-color: #001b3a;
+}
+
+.header-text {
+  color: white;
+  font-family: hyundaiFont;
+  font-size: 4em;
+  margin-bottom: 1.5em;
+}
+
+.card-title {
+  font-family: sebangFont;
+  font-size: 2em;
+}
+
+@font-face {
+  font-family: 'hyundaiFont';
+  src: local('hyundaiFont'), url('./fonts/fontModernTR.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'sebangFont';
+  src: local('sebangFont'), url('./fonts/SEBANGBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'paramFont';
+  src: local('paramFont'), url('./fonts/Jersey.ttf') format('truetype');
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%); /* 요소가 아래에서 위로 나타나는 애니메이션 */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-div {
+  animation: slideInFromBottom 0.5s ease-in-out; /* 애니메이션 이름, 지속시간, 타이밍 함수 설정 */
+  animation-delay: 0.2s; /* 애니메이션 시작 지연 시간 */
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
