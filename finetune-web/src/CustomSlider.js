@@ -1,8 +1,8 @@
 import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 
-const CustomSlider = styled(Slider)({
-  color: '#FF6B00',
+const CustomSlider = styled(Slider)(({ data }) => ({
+  color: data === "GPT" ? '#000000' : data === "LLAMA" ? '#0000FF' : '#A374DB',
   height: "3em",
   width: "20em",
   borderRadius: '100px',
@@ -13,7 +13,6 @@ const CustomSlider = styled(Slider)({
   '& .MuiSlider-thumb': {
     height: "3em",
     width: "3em",
-    // transform: `translateX(-3em) translateY(-1.5em)`,
     backgroundColor: '#fff',
     border: '2px solid currentColor',
     '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
@@ -42,6 +41,9 @@ const CustomSlider = styled(Slider)({
       transform: 'rotate(45deg)',
     },
   },
-});
+}));
 
-export default CustomSlider
+export default CustomSlider;
+
+
+

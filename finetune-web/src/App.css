@@ -64,6 +64,11 @@
   src: local('paramFont'), url('./fonts/Jersey.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'pixelFont';
+  src: local('pixelFont'), url('./fonts/pixelroborobo.otf') format('opentype');
+}
+
 @keyframes slideInFromBottom {
   from {
     opacity: 0;
@@ -73,6 +78,17 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
+.scroll-hide{
+  -ms-overflow-style: none;
+}
+.scroll-hide::-webkit-scrollbar {
+  display: none;
 }
 
 .animated-div {

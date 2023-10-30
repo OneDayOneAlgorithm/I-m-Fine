@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 
-const Modelify = (props) => {
-  const { data, setData } = props.location.state; // data와 setData 가져오기
-
-  const handleClick = () => {
-    setData({data}); // 데이터 설정
-  };
-
+const Modelify = () => {
+  const location = useLocation();
+  const data = location.state.data;
+  const sliderValues = location.state.sliderValues;
+  
   return (
     <div>
-      <h1>Modelify</h1>
-      <button onClick={handleClick}>Next</button>
-      <Link to="/Change">Go to Page 2</Link>
+      <h1>{data}</h1>
+      <h2>{sliderValues}</h2>
+      <Link to="/">
+        <h1>ddd</h1>
+      </Link>
     </div>
   );
 };

@@ -1,30 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import CustomSlider from "./CustomSlider";
 
-function MySlider() {
+function MySlider({ paramName, paramDesc, onSliderChange, modelName }) {
+  const handleSliderChange = (_, newValue) => {
+    // Slider 값이 변경될 때 호출되는 콜백 함수
+    onSliderChange(paramName, newValue);
+  };
+
   const sliderStyle = {
-    marginTop: "3em", // 여기에 마진 값을 설정하세요.
+    marginTop: "1em", // 여기에 마진 값을 설정하세요.
     display: 'flex',
+    // flex: '2',
+    marginLeft: '10em',
+    marginRight: '10em',
     alignItems: 'center',
   };
 
   const paramStyle = {
-    fontFamily: "paramFont"
+    fontFamily: "paramFont",
+    fontSize: '2em',
+    color: 'white',
+    flex: '1',
+    marginRight: '2em',
+  }
+
+  const sliderTextStyle = {
+    fontFamily: "pixelFont",
+    color: 'white',
+    textAlign: 'center',
+    marginTop: '1em',
   }
 
   return (
-    <div style={sliderStyle}>
-      <div style={paramStyle}>pam</div>
-      <div>
-        <CustomSlider
-          valueLabelDisplay="auto"
-          aria-label="pretto slider"
-          defaultValue={1.0}
-          min={0.1}
-          max={2.0}
-          step={0.05}
-        />
+    <div style={{ marginBottom: '3em' }}>
+      <div style={sliderStyle}>
+        <div style={paramStyle}>{paramName}</div>
+        <div>
+          <CustomSlider
+            data={modelName}
+            valueLabelDisplay="auto"
+            aria-label="pretto slider"
+            defaultValue={1.0}
+            min={0.1}
+            max={2.0}
+            step={0.05}
+            onChange={handleSliderChange}
+          />
+        </div>
+      </div>
+      <div style={sliderTextStyle}>
+        <h4>{paramDesc}</h4>
       </div>
     </div>
   );
@@ -33,6 +59,37 @@ function MySlider() {
 const Parameter = () => {
   const location = useLocation();
   const data = location.state.data;
+  const [isVisible, setIsVisible] = useState(false);
+
+  const curIdx = data === 'GPT' ? 0
+    : data === 'LLAMA' ? 1 : 2;
+
+  const params = [['EPS', 'ATTN', 'MLP'], ['L1', 'L2', 'L3'], ['S1', 'S2', 'S3', 'S4', 'S5']];
+
+  const paramDescs = [
+    ['높을수록 데이터 의존성 증가', '높을수록 단어 간 순서 의존성 증가', '높을수록 단어간 연관성 증가'],
+    ['설명1', '설명2', '설명3'],
+    ['설명1', '설명2', '설명3', '설명4', '설명5']
+  ];
+
+  const [sliderValues, setSliderValues] = useState(new Array(params[curIdx].length).fill(1.0));
+
+  const handleSliderChange = (paramName, newValue) => {
+    setSliderValues(prevValues => {
+      const index = params[curIdx].indexOf(paramName);
+      if (index !== -1) {
+        const newValues = [...prevValues];
+        newValues[index] = newValue;
+        console.log(newValues);
+        return newValues;
+      }
+      return prevValues;
+    });
+  };
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, [curIdx]);
 
   const containerStyle = {
     display: "flex",
@@ -51,17 +108,18 @@ const Parameter = () => {
   };
 
   const bottomPaneStyle = {
-    flex: 2, // 1:2 비율로 나누기 위해 flex 속성 사용
-    // overflow: "auto", // 내용이 넘칠 경우 스크롤 가능하도록 설정
+    flex: 2,
+    width: '100%',
     flexDirection: "column",
-    alignItems: "center", // 수평 중앙 정렬
-    marginTop: "20px", // MySlider 사이의 간격 조정
+    overflow: "auto",
+    paddingTop: '1.2em',
+    opacity: isVisible ? 1 : 0, transition: 'opacity 1s'
   };
 
   const headingStyle = {
     color: "white", // 텍스트 색상을 파란색으로 변경
     fontFamily: "hyundaiFont", // 폰트를 Arial로 설정
-    fontSize: "4em", // 폰트 크기를 24px로 설정
+    fontSize: "3.5em", // 폰트 크기를 24px로 설정
   };
 
   const arrowStyle = {
@@ -72,25 +130,28 @@ const Parameter = () => {
   return (
     <div style={{ display: "flex", width: "100%", alignItems: "center" }}>
       <div style={arrowStyle}>
-        <img
-          src="/arrow_img.png"
-          alt="좌측 화살표"
-          style={{ transform: "scaleX(-1)" }}
-        />
+        <Link to="/">
+          <img
+            src="/arrow_img.png"
+            alt="좌측 화살표"
+            style={{ transform: "scaleX(-1)" }}
+          />
+        </Link>
       </div>
       <div style={containerStyle}>
         <div style={topPaneStyle}>
           <h1 style={headingStyle}>{data} 파라미터 조정</h1>
-          <Link to="/Modelify">{data}</Link>
         </div>
-        <div style={bottomPaneStyle}>
-          <MySlider />
-          <MySlider />
-          <MySlider />
+        <div class="scroll-hide" style={bottomPaneStyle}>
+          {params[curIdx].map((param, index) => (
+            <MySlider modelName={data} paramName={param} paramDesc={paramDescs[curIdx][index]} onSliderChange={handleSliderChange}/>
+          ))}
         </div>
       </div>
       <div style={arrowStyle}>
-        <img src="/arrow_img.png" alt="우측 화살표" />
+        <Link to="/Modelify" state={{sliderValues, data}}>
+          <img src="/arrow_img.png" alt="우측 화살표" />
+        </Link>
       </div>
     </div>
   );
