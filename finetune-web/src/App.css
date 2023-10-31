@@ -24,6 +24,14 @@
   color: white;
 }
 
+.unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -33,7 +41,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 100vh; /* 뷰포트 높이의 100% */
+  height: 100vh;
+  /* 뷰포트 높이의 100% */
   background-color: #001b3a;
 }
 
@@ -72,8 +81,10 @@
 @keyframes slideInFromBottom {
   from {
     opacity: 0;
-    transform: translateY(100%); /* 요소가 아래에서 위로 나타나는 애니메이션 */
+    transform: translateY(100%);
+    /* 요소가 아래에서 위로 나타나는 애니메이션 */
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -84,22 +95,26 @@
   display: none;
 } */
 
-.scroll-hide{
+.scroll-hide {
   -ms-overflow-style: none;
 }
+
 .scroll-hide::-webkit-scrollbar {
   display: none;
 }
 
 .animated-div {
-  animation: slideInFromBottom 0.5s ease-in-out; /* 애니메이션 이름, 지속시간, 타이밍 함수 설정 */
-  animation-delay: 0.2s; /* 애니메이션 시작 지연 시간 */
+  animation: slideInFromBottom 0.5s ease-in-out;
+  /* 애니메이션 이름, 지속시간, 타이밍 함수 설정 */
+  animation-delay: 0.2s;
+  /* 애니메이션 시작 지연 시간 */
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
