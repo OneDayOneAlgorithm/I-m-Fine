@@ -1,17 +1,11 @@
 # 가져올 이미지를 정의
 FROM node:14
 
-# package.json 워킹 디렉토리에 복사
-COPY package.json .
-
 # 경로 설정하기
 WORKDIR /app
 
-# Node.js 설치
-RUN apt-get update && \
-    apt-get install -y curl && \
-    curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y nodejs
+# package.json 워킹 디렉토리에 복사
+COPY package.json package-lock.json .
 
 # 명령어 실행 (의존성 설치)
 RUN npm install
