@@ -18,12 +18,14 @@ services:
       - "80:80"
       - "443:443"
     volumes: 
-      - "./conf/nginx/conf.d:/etc/nginx/conf.d"
+      - ./conf/nginx/conf.d:/etc/nginx/conf.d
+      - ./conf/certbot/conf:/etc/nginx/ssl
+      - ./conf/certbot/data:/var/www/certbot
 
   certbot:
     container_name: certbot
     image: certbot/certbot:latest
-    command: certonly --webroot --webroot-path=/var/www/certbot --email leehyunk6310@naver.com --agree-tos --no-eff-email -d https://k9d109.p.ssafy.io
+    command: certonly --webroot --webroot-path=/var/www/certbot --email leehyunk6310@naver.com --agree-tos --no-eff-email -d k9d109.p.ssafy.io
     volumes:
         - ./conf/certbot/conf:/etc/letsencrypt
         - ./conf/certbot/logs:/var/log/letsencrypt
