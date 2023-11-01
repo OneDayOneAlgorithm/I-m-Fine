@@ -19,8 +19,8 @@ services:
     image: nginx:latest
     volumes: 
       - /var/jenkins_home/workspace/test-pipeline/conf/nginx/conf.d:/etc/nginx/conf.d
-      - /var/jenkins_home/workspace/test-pipeline/conf/nginx/conf.d:/etc/nginx/ssl
-      - /var/jenkins_home/workspace/test-pipeline/conf/nginx/conf.d:/var/www/certbot
+      - /var/jenkins_home/workspace/test-pipeline/conf/certbot/conf:/etc/nginx/ssl
+      - /var/jenkins_home/workspace/test-pipeline/conf/certbot/data:/var/www/certbot
 
 
   certbot:
