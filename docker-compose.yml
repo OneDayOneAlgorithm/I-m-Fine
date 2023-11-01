@@ -18,9 +18,15 @@ services:
       - "443:443"
     image: nginx:latest
     volumes: 
+<<<<<<< HEAD
       - /workspace/test-pipeline/conf/nginx/conf.d:/etc/nginx/conf.d
       - /workspace/test-pipeline/conf/nginx/conf.d:/etc/nginx/ssl
       - /workspace/test-pipeline/conf/nginx/conf.d:/var/www/certbot
+=======
+#      - /home/ubuntu/jenkins/workspace/test-pipeline/conf/nginx/conf.d:/etc/nginx/conf.d
+      - /home/ubuntu/jenkins/workspace/test-pipeline/conf/certbot/conf:/etc/nginx/ssl
+      - /home/ubuntu/jenkins/workspace/test-pipeline/conf/certbot/data:/var/www/certbot
+>>>>>>> ec2aa5018f6fb169d1bcd975de582c30c8aa5099
 
   certbot:
     container_name: certbot
