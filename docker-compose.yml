@@ -18,8 +18,7 @@ services:
       - "443:443"
     image: nginx:latest
     volumes: 
-      - ./conf/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-      - ./conf/nginx/conf.d/server.conf:/etc/nginx/conf.d/server.conf
+      - ./conf/nginx/conf.d:/etc/nginx/conf.d
       - ./conf/certbot/conf:/etc/nginx/ssl
       - ./conf/certbot/data:/var/www/certbot
 
