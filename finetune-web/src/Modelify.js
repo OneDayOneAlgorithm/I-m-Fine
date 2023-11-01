@@ -7,7 +7,7 @@ const Modelify = () => {
   const navigate = useNavigate();
   const model = location.state.data;
   const sliderValues = location.state.sliderValues;
-  const text = 'MODELING...';
+  const text = 'CONVERTING...';
   const delay = 500;
 
   const [data, setData] = useState([]);
@@ -33,6 +33,7 @@ const Modelify = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get("https://k9d109.p.ssafy.io/api/cat");
+      console.log(response);
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -51,13 +52,13 @@ const Modelify = () => {
         <h2>{sliderValues}</h2> */}
         {data.length !== 0 ? (
           console.log(data),
-          data.map((post) => (
-            <li>{post}</li>
-          )),
-          navigate('/home')
+          // data.map((post) => (
+          //   <li>{post}</li>
+          // )),
+          navigate('/Change',  {state: {params: sliderValues, model: model, prev : data, aft: data}}) // navigate('/home', state: {data, data+'a'})
         ) : (
           <div style={{ pointerEvents: 'none' }}>
-            <img class='unselectable' src="loading_no_bg.gif" alt="로딩바" autoplay />
+            <img className='unselectable' src="loading_no_bg.gif" alt="로딩바" autoPlay />
           </div>
         )}
       </div>
