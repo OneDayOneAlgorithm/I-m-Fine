@@ -13,9 +13,6 @@ services:
   
   nginx:
     container_name: nginx
-    build:
-      context: ./conf
-      dockerfile: Dockerfile
     ports:
       - "80:80"
       - "443:443"
