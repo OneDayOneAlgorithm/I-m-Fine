@@ -13,10 +13,13 @@ services:
   
   nginx:
     container_name: nginx
-    image: nginx:latest
+    build:
+      context: ./conf
+      dockerfile: Dockerfile
     ports:
       - "80:80"
       - "443:443"
+    image: nginx:latest
     volumes: 
       - ./conf/nginx/conf.d:/etc/nginx/conf.d
       - ./conf/certbot/conf:/etc/nginx/ssl
