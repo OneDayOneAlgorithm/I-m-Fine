@@ -1,3 +1,6 @@
 FROM nginx:latest
-RUN rm /etc/nginx/conf.d/default.conf
-COPY conf/nginx/nginx.conf /etc/nginx/conf.d
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY index.html /usr/share/nginx/html
+
+EXPOSE 80
