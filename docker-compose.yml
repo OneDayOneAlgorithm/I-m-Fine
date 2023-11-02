@@ -18,9 +18,9 @@ services:
       - "443:443"
     image: nginx:latest
     volumes: 
-      - /var/jenkins_home/workspace/test-pipeline/conf/nginx/conf.d:/etc/nginx/conf.d
-      - /var/jenkins_home/workspace/test-pipeline/conf/certbot/conf:/etc/nginx/ssl
-      - /var/jenkins_home/workspace/test-pipeline/conf/certbot/data:/var/www/certbot
+      - /home/ubuntu/jenkins/workspace/test-pipeline/conf/nginx/conf.d:/etc/nginx/conf.d
+      - /home/ubuntu/jenkins/workspace/test-pipeline/conf/certbot/conf:/etc/nginx/ssl
+      - /home/ubuntu/jenkins/workspace/test-pipeline/conf/certbot/data:/var/www/certbot
 
 
   certbot:
@@ -28,9 +28,9 @@ services:
     image: certbot/certbot:latest
     command: certonly --webroot --webroot-path=/var/www/certbot --email leehyunk6310@naver.com --agree-tos --no-eff-email -d k9d109.p.ssafy.io
     volumes:
-      - /var/jenkins_home/workspace/test-pipeline/conf/certbot/conf:/etc/letsencrypt
-      - /var/jenkins_home/workspace/test-pipeline/conf/certbot/logs:/var/log/letsencrypt
-      - /var/jenkins_home/workspace/test-pipeline/conf/certbot/data:/var/www/certbot
+      - /home/ubuntu/jenkins/workspace/test-pipeline/conf/certbot/conf:/etc/letsencrypt
+      - /home/ubuntu/jenkins/workspace/test-pipeline/conf/certbot/logs:/var/log/letsencrypt
+      - /home/ubuntu/jenkins/workspace/test-pipeline/conf/certbot/data:/var/www/certbot
 
    
   reactapp:
