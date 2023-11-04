@@ -18,18 +18,18 @@ function MySlider({ paramName, paramDesc, onSliderChange, modelName }) {
   };
 
   const paramStyle = {
-    fontFamily: "paramFont",
-    fontSize: '2em',
+    fontFamily: "bmFont",
+    fontSize: '3.5em',
     color: 'white',
     flex: '1',
     marginRight: '2em',
   }
 
   const sliderTextStyle = {
-    fontFamily: "pixelFont",
+    fontFamily: "bmFont",
     color: 'white',
     textAlign: 'center',
-    marginTop: '1em',
+    marginTop: '1.5em',
   }
 
   return (
