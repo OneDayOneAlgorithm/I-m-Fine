@@ -1,9 +1,13 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+import os
 
 
 app = FastAPI() # 인스턴스 생성
 router = APIRouter()  # APIRouter 인스턴스 생성
+templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "templates"))
 
 origins = [
     # "http://192.168.0.13:3000", # url을 등록해도 되고
@@ -18,6 +22,9 @@ app.add_middleware(
     allow_headers=["*"],	# 허용할 http header 목록을 설정할 수 있으며 Content-Type, Accept, Accept-Language, Content-Language은 항상 허용된다.
 )
 
+@router.get("/micro", response_class=HTMLResponse)
+async def micro(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request, "message": "Barkbark"})
 
 @router.get("/") # get method로 '/'에 해당하는  생성
 def root():
