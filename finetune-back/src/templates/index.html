@@ -6,6 +6,8 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            background-color: black; /* 배경색을 검은색으로 설정 */
+            color: blue; /* 텍스트 색상을 파란색으로 설정 */
         }
         h1 {
             color: #336699;
@@ -19,19 +21,27 @@
             margin-top: 50px;
         }
         #logo {
-            width: 100px;
-            height: 100px;
+            width: 300px; /* 로고 크기를 3배로 키움 */
+            height: 300px; /* 로고 크기를 3배로 키움 */
             margin-bottom: 20px;
+        }
+        #link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #336699;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div id="poster">
-        <img id="logo" src="your_logo.png" alt="Logo">
-        <h1>{{ "Pre-Training Model Fine-Tuning Service" }}</h1>
-        <p>Unlock the full potential of your pre-trained models with our fine-tuning service.</p>
-        <p>Enhance performance and achieve better results with our cutting-edge technology.</p>
-        <p>Contact us now to learn more!</p>
+        <img id="logo" src="/static/logo.png" alt="Logo">
+        <h1>{{ "I'm Fine Thank you" }}</h1>
+        <p>당신의 마음대로 파인튜닝 하세요!</p>
+        <a id="link" href="https://k9d109.p.ssafy.io/">서비스로 이동</a>
     </div>
 </body>
 </html>

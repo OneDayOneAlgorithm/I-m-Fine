@@ -1,4 +1,5 @@
 from fastapi import FastAPI, APIRouter, Request
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -6,6 +7,7 @@ import os
 
 
 app = FastAPI() # 인스턴스 생성
+app.mount("/static", StaticFiles(directory="static"), name="static")
 router = APIRouter()  # APIRouter 인스턴스 생성
 templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "templates"))
 
@@ -22,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],	# 허용할 http header 목록을 설정할 수 있으며 Content-Type, Accept, Accept-Language, Content-Language은 항상 허용된다.
 )
 
-@router.get("/micro", response_class=HTMLResponse)
+@app.get("/micro", response_class=HTMLResponse)
 async def micro(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "message": "Barkbark"})
 
