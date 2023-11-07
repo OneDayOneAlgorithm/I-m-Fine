@@ -5,12 +5,12 @@ import requests
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 # 로컬에서 실행시키기 위한 라이브러리
 from pydantic import BaseModel
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 app = FastAPI() # 인스턴스 생성
 app.mount("/static", StaticFiles(directory="static"), name="static")
 router = APIRouter()  # APIRouter 인스턴스 생성
