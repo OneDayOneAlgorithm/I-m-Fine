@@ -28,7 +28,7 @@ app.add_middleware(
 async def micro(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@router.get("/") # get method로 '/'에 해당하는  생성
+@router.get("/") # get method로 '/'에 해당하는  생성.
 def root():
     return {'Hello':'World!'} 
 
