@@ -9,6 +9,7 @@ WORKDIR /src
 
 # requirements.txt 파일에 명시된 필수 Python 라이브러리들을 설치합니다.
 RUN pip install -r requirements.txt
+RUN pip install torch==1.10.0+cpu torchvision==0.11.1+cpu torchaudio==0.10.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 # 컨테이너가 호스트의 80번 포트에 연결되도록 설정합니다.
 EXPOSE 80
