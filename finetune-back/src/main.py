@@ -19,7 +19,7 @@ templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "t
 
 origins = [
     # "http://192.168.0.13:3000", # url을 등록해도 되고
-    "*" # private 영역에서 사용한다면 *로 모든 접근을 허용할 수 있다.
+    "*" # private 영역에서 사용한다면 *로 모든 접근을 허용할 수 있다
 ]
 
 # 로컬에서 실행시키기 위한 메서드
