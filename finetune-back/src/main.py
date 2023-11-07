@@ -9,7 +9,7 @@ import os
 # 로컬에서 실행시키기 위한 라이브러리
 from pydantic import BaseModel
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
-
+import torch
 
 app = FastAPI() # 인스턴스 생성
 app.mount("/static", StaticFiles(directory="static"), name="static")
