@@ -24,9 +24,9 @@ app.add_middleware(
     allow_headers=["*"],	# 허용할 http header 목록을 설정할 수 있으며 Content-Type, Accept, Accept-Language, Content-Language은 항상 허용된다.
 )
 
-@app.get("/micro", response_class=HTMLResponse)
+@router.get("/micro", response_class=HTMLResponse)
 async def micro(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "message": "Barkbark"})
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @router.get("/") # get method로 '/'에 해당하는  생성
 def root():
