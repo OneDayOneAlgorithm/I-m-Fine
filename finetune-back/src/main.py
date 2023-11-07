@@ -9,6 +9,7 @@ import os
 # 로컬에서 실행시키기 위한 라이브러리
 from pydantic import BaseModel
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import torch
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 app = FastAPI() # 인스턴스 생성
@@ -80,8 +81,7 @@ async def setUrl(request: Request):
 def getUrl():
     return colab_url
 
-#gpt 모델 가중치 변경해서 데이터 반환
-@router.post("/gpt")
+@g.router.post("/gpt")
 async def call_colab_function(request: Request):
     json_data = await request.json()
     response = requests.post(colab_url, json=json_data)
