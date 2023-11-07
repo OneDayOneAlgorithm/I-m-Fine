@@ -3,3 +3,4 @@ fastapi==0.104.0
 jinja2
 requests==2.31.0
 transformers==4.11.3
+torch==1.10.0
