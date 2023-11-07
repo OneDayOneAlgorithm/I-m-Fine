@@ -35,7 +35,10 @@ def root():
 
 # 코랩 주소 업데이트
 @router.post("/set-url")
-def setUrl(url: str): 
+async def setUrl(request: Request):
+    data = await request.json() 
+    url = data["url"]
+
     global colab_url
     colab_url = url
     return colab_url
