@@ -30,7 +30,7 @@ class FTRequest(BaseModel):
     eps_weight: float
     
 # 로컬에서 실행시키기 위한 api
-@app.post("/gpt-fine-tune/")
+@router.post("/gpt-fine-tune/")
 async def gpt_fine_tune(request: FTRequest):
     model_name = "gpt2"
     tokenizer = GPT2Tokenizer.from_pretrained(model_name)
