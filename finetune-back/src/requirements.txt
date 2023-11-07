@@ -268,9 +268,9 @@ tokenize-rt==5.2.0
 tokenizers==0.14.1
 tomli==2.0.1
 toolz==0.12.0
-torch==1.10.0+cu113
-torchaudio==0.10.0+cu113
-torchvision==0.11.1+cu113
+torch==1.10.0
+torchaudio==0.10.0
+torchvision==0.11.1
 tornado==6.3.3
 tqdm==4.64.1
 traitlets==5.11.2
