@@ -8,7 +8,7 @@ import os
 
 # 로컬에서 실행시키기 위한 라이브러리
 from pydantic import BaseModel
-from transformers import GPT2LMHeadModel, GPT2Tokenizer, LlamaForCausalLM, LlamaTokenizer
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 
 app = FastAPI() # 인스턴스 생성
@@ -81,7 +81,7 @@ async def call_colab_function(request: Request):
 @router.post("/llama-fine-tune")
 async def call_colab_llama(request: Request):
     json_data = await request.json()
-    response = requests.post(colab_url, json=json_data)
+    response = requests.post(colab_url + "/llama", json=json_data)
     return response.text
 
 app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
