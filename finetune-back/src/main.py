@@ -83,5 +83,4 @@ async def call_colab_llama(request: Request):
     json_data = await request.json()
     response = requests.post(colab_url + "/llama", json=json_data)
     return response.text
-
 app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
