@@ -8,7 +8,7 @@ import os
 
 # 로컬에서 실행시키기 위한 라이브러리
 from pydantic import BaseModel
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import GPT2LMHeadModel, GPT2Tokenizer, LlamaForCausalLM, LlamaTokenizer
 
 
 app = FastAPI() # 인스턴스 생성
@@ -29,7 +29,7 @@ class FTRequest(BaseModel):
     eps_weight: float
     
 # 로컬에서 실행시키기 위한 api
-@router.post("/gpt-fine-tune/")
+@router.post("/gpt-fine-tune")
 async def gpt_fine_tune(request: FTRequest):
     model_name = "gpt2"
     tokenizer = GPT2Tokenizer.from_pretrained(model_name)
@@ -48,6 +48,28 @@ async def gpt_fine_tune(request: FTRequest):
     output = model.generate(input_ids, max_length=100, num_return_sequences=1, no_repeat_ngram_size=2)
     generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
     return {"result": generated_text}    
+
+@router.post("/llama-fine-tune")
+async def llamaFineTune(request: Request):
+    model_id = "meta-llama/Llama-2-7b-chat-hf"
+    tokenizer = LlamaTokenizer.from_pretrained(model_id, cache_dir="tmp/model")
+    model = LlamaForCausalLM.from_pretrained(model_id, cache_dir="tmp/model")
+    
+    input_ids = tokenizer.encode(request.input_text, return_tensors="pt")
+    for layer in model.model.layers:
+        layer.mlp.gate_proj.weight.data *= request.mlp_weight
+        layer.mlp.up_proj.weight.data *= request.mlp_weight
+        layer.mlp.down_proj.weight.data *= request.mlp_weight
+
+    for layer in model.model.layers:
+        layer.self_attn.q_proj.weight.data *= request.attn_weight
+        layer.self_attn.k_proj.weight.data *= request.attn_weight
+        layer.self_attn.v_proj.weight.data *= request.attn_weight
+        layer.self_attn.o_proj.weight.data *= request.attn_weight
+
+    output = model.generate(input_ids, max_length=100, num_return_sequences=1, no_repeat_ngram_size=2)
+    generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+    return generated_text
 
 app.add_middleware(
     CORSMiddleware,
