@@ -5,20 +5,33 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: black; /* 배경색을 검은색으로 설정 */
+            text-align: right; /* 텍스트 정렬 방식을 오른쪽으로 변경 */
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220312/pngtree-ai-technology-future-image_1061597.jpg'); /* 배경 이미지 추가 */
+            background-size: cover; /* 배경 이미지를 화면에 맞게 조절 */
+            background-repeat: no-repeat; /* 배경 이미지를 반복하지 않음 */
+            background-position: center; /* 배경 이미지의 위치를 중앙으로 설정 */
             color: blue; /* 텍스트 색상을 파란색으로 설정 */
+            display : flex;
+            justify-content : right;
+            align-item : center;
+            margin-right : 15%;
         }
         h1 {
             color: #336699;
         }
         #poster {
             width: 300px;
-            margin: 0 auto;
+            margin : 0; /* auto를 제거하여 오른쪽 정렬이 적용되도록 함 */
             border: 2px solid #336699;
             padding: 20px;
             border-radius: 10px;
             margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.5); /* 포스터 배경을 반투명하게 설정 */
+            display : flex;
+            flex-direction : column;
+            justify-content : center;
+            align-item : center;
+            text-align : center;
         }
         #logo {
             width: 300px; /* 로고 크기를 3배로 키움 */
