@@ -49,36 +49,6 @@ async def gpt_fine_tune(request: FTRequest):
     generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
     return {"result": generated_text}    
 
-@router.post("/llama-fine-tune")
-async def llamaFineTune(request: Request):
-    model_id = "meta-llama/Llama-2-7b-chat-hf"
-    tokenizer = LlamaTokenizer.from_pretrained(model_id, cache_dir="tmp/model")
-    model = LlamaForCausalLM.from_pretrained(model_id, cache_dir="tmp/model")
-    
-    input_ids = tokenizer.encode(request.input_text, return_tensors="pt")
-    for layer in model.model.layers:
-        layer.mlp.gate_proj.weight.data *= request.mlp_weight
-        layer.mlp.up_proj.weight.data *= request.mlp_weight
-        layer.mlp.down_proj.weight.data *= request.mlp_weight
-
-    for layer in model.model.layers:
-        layer.self_attn.q_proj.weight.data *= request.attn_weight
-        layer.self_attn.k_proj.weight.data *= request.attn_weight
-        layer.self_attn.v_proj.weight.data *= request.attn_weight
-        layer.self_attn.o_proj.weight.data *= request.attn_weight
-
-    output = model.generate(input_ids, max_length=100, num_return_sequences=1, no_repeat_ngram_size=2)
-    generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-    return generated_text
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True, # cookie 포함 여부를 설정한다. 기본은 False
-    allow_methods=["*"],    # 허용할 method를 설정할 수 있으며, 기본값은 'GET'이다.
-    allow_headers=["*"],	# 허용할 http header 목록을 설정할 수 있으며 Content-Type, Accept, Accept-Language, Content-Language은 항상 허용된다.
-)
-
 @router.get("/micro", response_class=HTMLResponse)
 async def micro(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
@@ -104,6 +74,12 @@ def getUrl():
 #gpt 모델 가중치 변경해서 데이터 반환
 @router.post("/gpt")
 async def call_colab_function(request: Request):
+    json_data = await request.json()
+    response = requests.post(colab_url, json=json_data)
+    return response.text
+
+@router.post("/llama-fine-tune")
+async def call_colab_llama(request: Request):
     json_data = await request.json()
     response = requests.post(colab_url, json=json_data)
     return response.text
