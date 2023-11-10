@@ -28,13 +28,21 @@ origins = [
     "*" # private 영역에서 사용한다면 *로 모든 접근을 허용할 수 있다
 ]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Content-Type"],
+)
+
 # 직접 gpt2 모델을 파인튜닝할 때 사용할 인자 값
 class FTRequest(BaseModel):
     input_text: str
     mlp_weight: float
     attn_weight: float
     eps_weight: float
-    
+
 # 직접 gpt2 모델을 파인튜닝 하는 API
 @router.post("/gpt-fine-tune/")
 async def gpt_fine_tune(request: FTRequest):
@@ -55,14 +63,6 @@ async def gpt_fine_tune(request: FTRequest):
     output = model.generate(input_ids, max_length=100, num_return_sequences=1, no_repeat_ngram_size=2)
     generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
     return {"result": generated_text}    
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True, # cookie 포함 여부를 설정한다. 기본은 False
-    allow_methods=["*"],    # 허용할 method를 설정할 수 있으며, 기본값은 'GET'이다..
-    allow_headers=["*"],	# 허용할 http header 목록을 설정할 수 있으며 Content-Type, Accept, Accept-Language, Content-Language은 항상 허용된다.
-)
 
 # 마이크로 사이트 API - html 사용
 @router.get("/", response_class=HTMLResponse)
@@ -88,5 +88,12 @@ async def call_colab_function(request: Request):
     json_data = await request.json()
     response = requests.post(colab_url, json=json_data)
     return response.text
+
+@router.post("/llama-fine-tune")
+async def call_colab_llama(request: Request):
+    json_data = await request.json()
+    response = requests.post(colab_url + "/llama", json=json_data)
+    return response.text
+
 
 app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
