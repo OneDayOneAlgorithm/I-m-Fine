@@ -14,6 +14,7 @@ const Modelify = () => {
   const [data, setData] = useState([]);
 
   const [currentText, setCurrentText] = useState("");
+  const [afterText, setAfterText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -49,20 +50,35 @@ const Modelify = () => {
               eps_weight: sliderValues[0],
             }
           );
+          console.log(response);
+          // 가공
+          // 줄바꿈 치환
+          const replacedNewlines = response.data.result.replace(/\\n/g, '\n');
+
+          // 특수문자 앞의 역슬래시 제거
+          const finalText = replacedNewlines.replace(/\\/g, '');
+
+          setAfterText(finalText);
         } else if (model === "LLAMA") {
           response = await axios.post(
             "https://k9d109.p.ssafy.io/api/llama-fine-tune",
             {
               input_text: inputText,
-              mlp_weight: sliderValues[2],
-              attn_weight: sliderValues[1],
+              mlp_weight: sliderValues[1],
+              attn_weight: sliderValues[0],
             }
           );
+          console.log(response);
+          // 가공
+          // 줄바꿈 치환
+          const replacedNewlines = response.data.result.replace(/\\n/g, '\n');
+
+          // 특수문자 앞의 역슬래시 제거
+          const finalText = replacedNewlines.replace(/\\/g, '');
+          setAfterText(finalText);
         } else {
           // response = await axios.post("https://k9d109.p.ssafy.io/api/cat");
         }
-        console.log(response);
-        setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -91,19 +107,20 @@ const Modelify = () => {
       >
         {/* <h1>{model}</h1>
         <h2>{sliderValues}</h2> */}
-        {data.length !== 0 ? (
-          (console.log(data),
-          // data.map((post) => (
-          //   <li>{post}</li>
-          // )),
-          navigate("/Change", {
-            state: {
-              params: sliderValues,
-              model: model,
-              prev: data,
-              aft: data,
-            },
-          })) // navigate('/home', state: {data, data+'a'})
+        {afterText.length !== 0 ? (
+          (console.log(data.result),
+            // setAfterText(data.result),
+            // data.map((post) => (
+            //   <li>{post}</li>
+            // )),
+            navigate("/Change", {
+              state: {
+                params: sliderValues,
+                model: model,
+                prev: inputText,
+                aft: afterText,
+              },
+            })) // navigate('/home', state: {data, data+'a'})
         ) : (
           <div style={{ pointerEvents: "none" }}>
             <img

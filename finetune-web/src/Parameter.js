@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import CustomSlider from "./CustomSlider";
 
-function MySlider({ paramName, paramDesc, onSliderChange, modelName }) {
+function MySlider({ paramName, paramDesc, onSliderChange, modelName, min, max }) {
   const handleSliderChange = (_, newValue) => {
     // Slider 값이 변경될 때 호출되는 콜백 함수
     onSliderChange(paramName, newValue);
@@ -41,9 +41,9 @@ function MySlider({ paramName, paramDesc, onSliderChange, modelName }) {
             data={modelName}
             valueLabelDisplay="auto"
             aria-label="pretto slider"
-            defaultValue={1.0}
-            min={0.1}
-            max={2.0}
+            defaultValue={max/2}
+            min={min}
+            max={max}
             step={0.05}
             onChange={handleSliderChange}
           />
@@ -66,8 +66,8 @@ const Parameter = () => {
 
   const params = [
     ["EPS", "ATTN", "MLP"],
-    ["L1", "L2", "L3"],
-    ["S1", "S2", "S3", "S4", "S5"],
+    ["ATTN", "MLP"],
+    ["TONE", "STYLE", "REGION"],
   ];
 
   const paramDescs = [
@@ -76,8 +76,15 @@ const Parameter = () => {
       "높을수록 단어 간 순서 의존성 증가",
       "높을수록 단어간 연관성 증가",
     ],
-    ["설명1", "설명2", "설명3"],
-    ["설명1", "설명2", "설명3", "설명4", "설명5"],
+    [
+      "높을수록 데이터 의존성 증가",
+      "높을수록 단어 간 순서 의존성 증가",      
+    ],
+    [
+      "높을수록 색감이 선명해짐",
+      "높을수록 입체적으로 변함",
+      "높을수록 서양풍이 강해짐",
+    ],
   ];
 
   const [sliderValues, setSliderValues] = useState(
@@ -175,6 +182,8 @@ const Parameter = () => {
               paramName={param}
               paramDesc={paramDescs[curIdx][index]}
               onSliderChange={handleSliderChange}
+              min={data === 'Stable Diffusion' ? 0.0 : 0.1}
+              max={data === 'Stable Diffusion' ? 1.0 : 2.0}
             />
           ))}
         </div>
