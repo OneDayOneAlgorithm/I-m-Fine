@@ -21,6 +21,14 @@ origins = [
     "*" # private 영역에서 사용한다면 *로 모든 접근을 허용할 수 있다.
 ]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Content-Type"],
+)
+
 # 로컬에서 실행시키기 위한 메서드
 class FTRequest(BaseModel):
     input_text: str
@@ -83,4 +91,6 @@ async def call_colab_llama(request: Request):
     json_data = await request.json()
     response = requests.post(colab_url + "/llama", json=json_data)
     return response.text
+
+
 app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
