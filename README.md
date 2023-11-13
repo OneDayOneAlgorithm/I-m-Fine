@@ -6,6 +6,4 @@
 [:erd:](https://www.erdcloud.com/d/QyNKvXFEaEH4DDT3N)
 [게릿](http://k9d109.p.ssafy.io:8989/q/status:open+-is:wip)
 
-
-
 [GitHub - facebookresearch/llama-recipes: Examples and recipes for Llama 2 model](https://github.com/facebookresearch/llama-recipes)
