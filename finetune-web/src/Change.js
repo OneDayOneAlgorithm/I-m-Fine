@@ -7,6 +7,8 @@ function CenteredTextInBox({ org, chg }) {
     flex: 3,
     flexDirection: "column", // 세로 방향 배치
     justifyContent: 'center',
+    paddingLeft: '1em',
+    paddingRight: '1em',
     alignItems: 'center',
     width: '100%',
     height: '100%',
@@ -15,9 +17,13 @@ function CenteredTextInBox({ org, chg }) {
   };
 
   const divStyle = {
-    color: 'white', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center',
-    fontFamily: 'sebangFont',
-    WebkitTextStroke: '4px black'
+    color: 'white', 
+    flex: 1, display: 
+    'flex', 
+    flexDirection: 'column', 
+    justifyContent: 'center',
+    fontFamily: 'bmFont',
+    fontSize: '1.2em',
   }
 
   return (
@@ -26,7 +32,7 @@ function CenteredTextInBox({ org, chg }) {
       <img
             src="/white_arrow.png"
             alt="아래 화살표"
-            style={{ width: '25%', height: '40%', transform: "rotate(90deg)" }}
+            style={{ width: '10%', height: '20%', transform: "rotate(90deg)" }}
       />
       <div style={divStyle}>{chg}</div>
     </div>
@@ -43,6 +49,7 @@ const Parameter = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    console.log(org);
     setIsVisible(true);
   }, []);
 
@@ -96,14 +103,14 @@ const Parameter = () => {
       </div>
       <div style={containerStyle}>
         <div style={topPaneStyle}>
-          <h1 style={headingStyle}> 인풋은 이거 입니다. </h1>
+          <h1 style={headingStyle}> 출력이 아래와 같이 나옵니다. </h1>
         </div>
         <div class="scroll-hide" style={bottomPaneStyle}>
           <CenteredTextInBox org={org} chg={chg} />
         </div>
       </div>
       <div style={arrowStyle}>
-        <Link to="/Send">
+        <Link to="/finish">
           <img src="/arrow_img.png" alt="우측 화살표" />
         </Link>
       </div>
