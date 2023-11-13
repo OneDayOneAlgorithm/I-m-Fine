@@ -41,7 +41,6 @@ const Modelify = () => {
         console.log(inputText);
         console.log(model);
         if (model === "GPT") {
-          console.log('하이')
           response = await axios.post(
             "https://k9d109.p.ssafy.io/api/gpt-fine-tune",
             {
