@@ -30,11 +30,12 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # 혹은 특정 도메인을 추가
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Content-Type"],
 )
+
 
 # 직접 gpt2 모델을 파인튜닝할 때 사용할 인자 값
 class FTRequest(BaseModel):
