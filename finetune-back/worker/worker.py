@@ -6,10 +6,14 @@ import requests
 from fastapi import Request
 from database import SessionLocal, engine
 from typing import List
+import models
 
 broker_url = os.getenv('CELERY_BROKER_URL', 'pyamqp://guest@localhost//')
 # 앱 이름과 broker 설정(heroku상의 rabbitmq url)
 app = Celery('tasks', broker=broker_url)
+
+models.Base.metadata.create_all(bind=engine)
+
 
 class Item(BaseModel):
     text: str

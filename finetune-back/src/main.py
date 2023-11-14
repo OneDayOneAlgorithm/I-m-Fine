@@ -10,20 +10,27 @@ from celery import Celery
 
 
 
-# 로컬에서 실행시키기 위한 라이브러리
+# 직접 gpt2 모델을 파인튜닝하기 위한 라이브러리
 from pydantic import BaseModel
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 models.Base.metadata.create_all(bind=engine)
+# GPU를 사용하지 않겠다
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 app = FastAPI() # 인스턴스 생성
+
+# html을 사용하기 위해 Jinja2 함수 사용
+templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "templates"))
+
+# html에서 static 폴더를 마운트할 때 사용
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
 router = APIRouter()  # APIRouter 인스턴스 생성
 colab_url = ""
-templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "templates"))
 origins = [
     # "http://192.168.0.13:3000", # url을 등록해도 되고
-    "*" # private 영역에서 사용한다면 *로 모든 접근을 허용할 수 있다.
+    "*" # private 영역에서 사용한다면 *로 모든 접근을 허용할 수 있다
 ]
 
 app.add_middleware(
@@ -49,13 +56,14 @@ channel = connection.channel()
 channel.queue_declare(queue=queue_name)
 
 # 로컬에서 실행시키기 위한 메서드
+# 직접 gpt2 모델을 파인튜닝할 때 사용할 인자 값
 class FTRequest(BaseModel):
     input_text: str
     mlp_weight: float
     attn_weight: float
     eps_weight: float
-    
-# 로컬에서 실행시키기 위한 api
+
+# 직접 gpt2 모델을 파인튜닝 하는 API
 @router.post("/gpt-fine-tune")
 async def gpt_fine_tune(request: FTRequest):
     model_name = "gpt2"
@@ -76,20 +84,16 @@ async def gpt_fine_tune(request: FTRequest):
     generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
     return {"result": generated_text}    
 
-@router.get("/micro", response_class=HTMLResponse)
+# 마이크로 사이트 API - html 사용
+@router.get("/", response_class=HTMLResponse)
 async def micro(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
-
-@router.get("/") # get method로 '/'에 해당하는  생성
-def root():
-    return {'Hello':'World!'} 
 
 # 코랩 주소 업데이트
 @router.post("/set-url")
 async def setUrl(request: Request):
     data = await request.json() 
     url = data["url"]
-
     global colab_url
     colab_url = url
     return colab_url
