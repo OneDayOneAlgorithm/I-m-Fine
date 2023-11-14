@@ -60,7 +60,7 @@
 
 ### 3.2. 사용자 입력
 
-![](README/parameter.png)
+![](README/parameter.png){: width="100" height="100"}
 
 - 사용자가 텍스트 입력 후 파라미터 값 직접 조정
 
