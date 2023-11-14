@@ -4,4 +4,9 @@ jinja2
 requests==2.31.0
 transformers==4.11.3
 torch==1.10.0
-
+pika
+pydantic
+celery
+sqlalchemy
+pymysql
+cryptography

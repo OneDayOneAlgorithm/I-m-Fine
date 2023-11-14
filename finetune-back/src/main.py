@@ -1,15 +1,20 @@
-from fastapi import FastAPI, APIRouter, Request
+from fastapi import FastAPI, APIRouter, Request, Depends, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import os
+import pika
+from celery import Celery
+
+
 
 # 로컬에서 실행시키기 위한 라이브러리
 from pydantic import BaseModel
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI() # 인스턴스 생성
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -28,6 +33,20 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Content-Type"],
 )
+
+# Celery 인스턴스 생성
+celery_app = Celery('tasks', broker='amqp://guest:guest@rabbitmq:5672')
+
+# RabbitMQ 설정
+rabbitmq_host = 'rabbitmq'  # RabbitMQ 서버의 호스트
+queue_name = 'test'    # 사용할 큐 이름
+
+# RabbitMQ 연결
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))
+channel = connection.channel()
+
+# 큐 선언
+channel.queue_declare(queue=queue_name)
 
 # 로컬에서 실행시키기 위한 메서드
 class FTRequest(BaseModel):
@@ -94,3 +113,22 @@ async def call_colab_llama(request: Request):
 
 
 app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
+
+###########################################################################
+###########################################################################
+class GPTRequest(BaseModel):
+    input_text: str
+    mlp_weight: float
+    attn_weight: float
+    eps_weight: float
+    url: str = colab_url
+
+@router.post("/gpt")
+def send_message(request: GPTRequest):
+    # Celery 작업 호출
+    task = celery_app.send_task('tasks.gpt', args=[request])
+    return {"message": "Task sent", "task_id": task.id}
+
+@router.post("/llama")
+def receive_message():
+    task = celery_app.send_task('tasks.llama', args=[])
