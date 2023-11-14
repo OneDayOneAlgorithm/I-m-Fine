@@ -8,13 +8,10 @@ import os
 import pika
 from celery import Celery
 
-
-
 # 직접 gpt2 모델을 파인튜닝하기 위한 라이브러리
 from pydantic import BaseModel
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
-models.Base.metadata.create_all(bind=engine)
 # GPU를 사용하지 않겠다
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 

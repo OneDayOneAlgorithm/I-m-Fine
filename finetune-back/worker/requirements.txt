@@ -3,3 +3,4 @@ fastapi==0.104.0
 pika
 pydantic
 celery
+requests==2.31.0
