@@ -7,6 +7,4 @@ torch==1.10.0
 pika
 pydantic
 celery
-sqlalchemy
-pymysql
-cryptography
+

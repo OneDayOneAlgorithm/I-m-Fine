@@ -64,8 +64,9 @@ services:
       - /home/ubuntu/jenkins/workspace/test-pipeline/conf/nginx/conf.d:/etc/nginx/conf.d
       - /home/ubuntu/jenkins/workspace/test-pipeline/conf/certbot/conf:/etc/nginx/ssl
       - /home/ubuntu/jenkins/workspace/test-pipeline/conf/certbot/data:/var/www/certbot
-
-
+    depends_on:
+      - fastapi 
+      - reactapp
   certbot:
     container_name: certbot
     image: certbot/certbot:latest
