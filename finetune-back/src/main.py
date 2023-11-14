@@ -32,7 +32,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # 혹은 특정 도메인을 추가
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Content-Type"],
@@ -52,7 +52,6 @@ channel = connection.channel()
 # 큐 선언
 channel.queue_declare(queue=queue_name)
 
-# 로컬에서 실행시키기 위한 메서드
 # 직접 gpt2 모델을 파인튜닝할 때 사용할 인자 값
 class FTRequest(BaseModel):
     input_text: str
