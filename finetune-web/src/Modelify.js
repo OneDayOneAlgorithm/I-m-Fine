@@ -40,6 +40,13 @@ const Modelify = () => {
         console.log(sliderValues);
         console.log(inputText);
         console.log(model);
+
+        const headers = {
+          'Content-Security-Policy': 'upgrade-insecure-requests',
+          // 여기에 다른 헤더도 필요하다면 추가할 수 있습니다.
+          // 예: 'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
+        };
+        
         if (model === "GPT") {
           response = await axios.post(
             "https://k9d109.p.ssafy.io/api/gpt-fine-tune",
@@ -48,7 +55,8 @@ const Modelify = () => {
               mlp_weight: sliderValues[2],
               attn_weight: sliderValues[1],
               eps_weight: sliderValues[0],
-            }
+            },
+            { headers } // 헤더 추가
           );
           console.log(response);
           // 가공
