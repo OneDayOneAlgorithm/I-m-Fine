@@ -27,7 +27,7 @@ async def gpt(request: Request):
     # print(text[::-1])
     # return text[::-1]
 
-@app.llama(name='tasks.llama')
+@app.task(name='tasks.llama')
 def reverse(text):
     print("5 left")
     sleep(5)
