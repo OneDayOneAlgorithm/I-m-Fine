@@ -55,7 +55,8 @@ const Modelify = () => {
               mlp_weight: sliderValues[2],
               attn_weight: sliderValues[1],
               eps_weight: sliderValues[0],
-            }
+            },
+            { headers } // 헤더 추가
           );
           console.log(response);
           // 가공
