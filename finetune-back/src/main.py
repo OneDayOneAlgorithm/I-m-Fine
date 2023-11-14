@@ -44,7 +44,7 @@ class FTRequest(BaseModel):
     eps_weight: float
 
 # 직접 gpt2 모델을 파인튜닝 하는 API
-@router.post("/gpt-fine-tune/")
+@router.post("/gpt-fine-tune")
 async def gpt_fine_tune(request: FTRequest):
     model_name = "gpt2"
     tokenizer = GPT2Tokenizer.from_pretrained(model_name)
