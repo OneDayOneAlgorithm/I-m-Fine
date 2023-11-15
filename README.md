@@ -11,7 +11,7 @@
    2. [Back-End](#52-back-end)
 6. [프로젝트 구조도](#6-프로젝트-구조도)
 7. [Design](#7-design)
-8. [Team](#8-team)
+8. [TEAM](#8-team)
 
 <br>
 <br>
@@ -210,93 +210,21 @@ $ npm start
 
 <br>
 
-## 7. Design
+## 7. 시스템 아키텍쳐
 
-### 7.1. 시스템 구조도
-
-![Architecture](./README/architecture.jpg)
-
-<br>
-
-### 7.2. API 설계
-
-[API 명세서](https://ten-brownie-866.notion.site/54edf2756f7848de9f43c8d8c85f85e3?pvs=4)
+![](README/architecture.png){: width="300" height="300"}
 
 <br>
 <br>
 
-## 8. Team
+## 8. TEAM
 
-### 8.1. Front-end
-
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0pky">팀원</th>
-    <th class="tg-0pky">박현우</th>
-    <th class="tg-0pky">정용우</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky">GitHub</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">-</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">역할 및 담당 기능</td>
-    <td class="tg-0pky">
-    - 팀장<br>
-    - 디자인<br>
-    - 필터링</td>
-    <td class="tg-0pky">
-    - FE 팀장<br>
-    - 컴포넌트 구조 설계<br>
-    - 검색</td>
-  </tr>
-</tbody>
-</table>
-
-<br>
-
-### 8.2. Back-end
-
-<table>
-<thead>
-  <tr>
-    <th class="tg-0pky">팀원</th>
-    <th class="tg-0pky">김현진</th>
-    <th class="tg-0pky">이상혁</th>
-    <th class="tg-0pky">손민균</th>
-    <th class="tg-0pky">김형진</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky">GitHub</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">-</td>
-    <td class="tg-0pky">-</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">역할 및 담당 기능</td>
-    <td class="tg-0pky">
-    - BE 팀장<br>
-    - CI/CD<br>
-    - 장소관리</td>
-    <td class="tg-0pky">
-    - 인프라<br>
-    - API</td>
-    <td class="tg-0pky">
-    - 추천 알고리즘<br>
-    - 검색</td>
-    <td class="tg-0pky">
-    - 회원관리<br>
-    - 검색</td>
-  </tr>
-</tbody>
-</table>
+* 김현진 - Hyunjin Kim - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
+* 김형진 - Hyungjin Kim - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
+* 박현우 - Hyunwoo Park - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Front / PM]
+* 손민균 - Minkyun Son - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
+* 이상혁 - Sanghyuk Lee - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
+* 이현근 - Hyeongeun Lee - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
 
 <br>
 <br>
