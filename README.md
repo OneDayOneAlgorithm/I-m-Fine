@@ -48,7 +48,7 @@
 
 ### 3.1. pre-trained 모델 선택
 
-![](README/choose_pretrained_model.png){: width="300" height="400"}
+![](README/choose_pretrained_model.png){: width="400" height="300"}
 
 - LLAMA2, GPT2, Stable Diffusion 모델 중 하나를 선택
 - LLAMA2, GPT2 모델은 텍스트 모델 (텍스트 입력, 텍스트 출력)
@@ -58,7 +58,7 @@
 
 ### 3.2. 사용자 입력
 
-![](README/parameter.png){: width="300" height="500"}
+![](README/parameter.png){: width="500" height="300"}
 
 - 사용자가 텍스트 입력 후 파라미터 값 직접 조정
 
@@ -74,7 +74,7 @@
 
 ### 3.4 출력 화면
 
-![](README/result.png){: width="300" height="400"}
+![](README/result.png){: width="400" height="300"}
 
 - 입력에 해당하는 답변 출력
 
@@ -210,7 +210,7 @@ $ npm start
 
 ## 7. 시스템 아키텍쳐
 
-![](README/architecture.png){: width="300" height="500"}
+![](README/architecture.png){: width="500" height="300"}
 
 <br>
 <br>
