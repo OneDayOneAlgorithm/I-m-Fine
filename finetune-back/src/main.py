@@ -99,11 +99,11 @@ def getUrl():
     return colab_url
 
 #gpt 모델 가중치 변경해서 데이터 반환
-@router.post("/gpt")
-async def call_colab_function(request: Request):
-    json_data = await request.json()
-    response = requests.post(colab_url, json=json_data)
-    return response.text
+# @router.post("/gpt")
+# async def call_colab_function(request: Request):
+#     json_data = await request.json()
+#     response = requests.post(colab_url, json=json_data)
+#     return response.text
 
 @router.post("/llama-fine-tune")
 async def call_colab_llama(request: Request):

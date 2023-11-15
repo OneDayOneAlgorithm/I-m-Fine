@@ -21,9 +21,16 @@ models.Base.metadata.create_all(bind=engine)
 class Item(BaseModel):
     text: str
 
+class GPTRequest(BaseModel):
+    input_text: str
+    mlp_weight: float
+    attn_weight: float
+    eps_weight: float
+    url: str 
+
 # gpt에 요청하는 부분 작성해야함
 @app.task(name='tasks.gpt')
-async def gpt(request: Request):
+async def gpt(request: GPTRequest):
     json_data = await request.json()
     print(json_data)
     # response = requests.post(col)
