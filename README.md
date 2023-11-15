@@ -5,12 +5,10 @@
 1. [개요](#1-개요)
 2. [프로젝트 소개](#2-프로젝트-소개)
 3. [주요 기능](#3-주요-기능)
-4. [프로젝트 실행방법](#4-프로젝트-실행-방법)
+4. [프로젝트 실행방법](#4-프로젝트-실행-방법(현재-서버-닫음)
 5. [기술스택](#5-기술-스택)
-   1. [Mobile](#51-front-end)
-   2. [Back-End](#52-back-end)
 6. [프로젝트 구조도](#6-프로젝트-구조도)
-7. [Design](#7-design)
+7. [시스템 아키텍쳐](#7-시스템-아키텍쳐)
 8. [TEAM](#8-team)
 
 <br>
@@ -50,7 +48,7 @@
 
 ### 3.1. pre-trained 모델 선택
 
-![](README/choose_pretrained_model.png){: width="300" height="300"}
+![](README/choose_pretrained_model.png){: width="300" height="400"}
 
 - LLAMA2, GPT2, Stable Diffusion 모델 중 하나를 선택
 - LLAMA2, GPT2 모델은 텍스트 모델 (텍스트 입력, 텍스트 출력)
@@ -60,7 +58,7 @@
 
 ### 3.2. 사용자 입력
 
-![](README/parameter.png){: width="300" height="300"}
+![](README/parameter.png){: width="300" height="500"}
 
 - 사용자가 텍스트 입력 후 파라미터 값 직접 조정
 
@@ -76,7 +74,7 @@
 
 ### 3.4 출력 화면
 
-![](README/result.png){: width="300" height="300"}
+![](README/result.png){: width="300" height="400"}
 
 - 입력에 해당하는 답변 출력
 
@@ -212,7 +210,7 @@ $ npm start
 
 ## 7. 시스템 아키텍쳐
 
-![](README/architecture.png){: width="300" height="300"}
+![](README/architecture.png){: width="300" height="500"}
 
 <br>
 <br>
