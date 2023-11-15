@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from time import sleep
 import os
 import requests
-from fastapi import Request
+from fastapi import Request, Depends
 from database import SessionLocal, engine
 from typing import List
 import models
