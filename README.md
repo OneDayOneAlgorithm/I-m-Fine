@@ -217,18 +217,9 @@ $ npm start
 
 ## 8. TEAM
 
-* 김현진 - Hyunjin Kim - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
-* 김형진 - Hyungjin Kim - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
-* 박현우 - Hyunwoo Park - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Front / PM]
-* 손민균 - Minkyun Son - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
-* 이상혁 - Sanghyuk Lee - makada23@gmail.com - [GitHub](https://github.com/LeeSanghyuk36) [Back]
-* 이현근 - Hyeongeun Lee - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
-
-<br>
-<br>
-
-## 📒 License
-
-<p>
-This software is licensed under the MIT <a href="https://www.ssafy.com/ksp/jsp/swp/swpMain.jsp" _blank="new">©SSAFY</a>.
-</p>
+- 김현진 - Hyunjin Kim - [Back]
+- 김형진 - Hyungjin Kim - [Back]
+- 박현우 - Hyunwoo Park - [Front]
+- 손민균 - Minkyun Son - [Back]
+- 이상혁 - Sanghyuk Lee - [Back]
+- 이현근 - Yongwoo Jeong - [Back]
