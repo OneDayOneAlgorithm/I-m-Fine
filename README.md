@@ -217,12 +217,12 @@ $ npm start
 
 ## 8. TEAM
 
-* 김현진 - Hyunjin Kim - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
-* 김형진 - Hyungjin Kim - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
-* 박현우 - Hyunwoo Park - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Front / PM]
-* 손민균 - Minkyun Son - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
-* 이상혁 - Sanghyuk Lee - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
-* 이현근 - Hyeongeun Lee - [Email](gudwls9966@gmail.com) - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
+* 김현진 - Hyunjin Kim - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
+* 김형진 - Hyungjin Kim - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
+* 박현우 - Hyunwoo Park - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Front / PM]
+* 손민균 - Minkyun Son - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
+* 이상혁 - Sanghyuk Lee - makada23@gmail.com - [GitHub](https://github.com/LeeSanghyuk36) [Back]
+* 이현근 - Hyeongeun Lee - gudwls9966@gmail.com - [GitHub](https://github.com/OneDayOneAlgorithm) [Back]
 
 <br>
 <br>
