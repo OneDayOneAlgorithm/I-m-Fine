@@ -112,9 +112,6 @@ async def call_colab_llama(request: Request):
     response = requests.post(colab_url + "/llama", json=json_data)
     return response.text
 
-
-app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
-
 ###########################################################################
 ###########################################################################
 class GPTRequest(BaseModel):
@@ -133,3 +130,11 @@ def send_message(request: GPTRequest):
 @router.post("/llama")
 def receive_message():
     task = celery_app.send_task('tasks.llama', args=[])
+
+
+
+
+
+
+
+app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
