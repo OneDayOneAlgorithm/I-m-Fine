@@ -1,6 +1,7 @@
 # 아임파인 😊
 
 ![Github](https://img.shields.io/badge/vue-2.6.11-%234FC08D?style=plastic&logo=Vue.js)![Github](https://img.shields.io/badge/spring_boot-2.3.1-%236DB33F?style=plastic&logo=Spring)![Github](https://img.shields.io/badge/MySQL-8.0-%234479A1?style=plastic&logo=mysql)![Github](https://img.shields.io/badge/Redis-3.0-%23DC382D?style=plastic&logo=Redis)![Github](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
+`#AI` `#fine-tuning`
 
 ## :sunny: 아임파인 😊
 
@@ -38,7 +39,7 @@
 
 ## 📌 목차
 
-[Run With Me ? 🏃](#:sunny: 아임파인 😊) 
+[아임파인 😊](#:sunny: 아임파인 😊) 
 
 * [시작하기](#🚩-시작하기)
   
@@ -123,6 +124,15 @@ $ npm i
 ```bash
 $ npm start
 ```
+
+<br>
+<br>
+
+## :globe_with_meridians: 지원하는 브라우저
+
+| Chrome | Safari | Edge   | Firefox |
+| ------ | ------ | ------ | ------- |
+| latest | latest | latest | latest  |
 
 <br>
 <br>
