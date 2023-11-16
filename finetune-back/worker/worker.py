@@ -3,10 +3,13 @@ from pydantic import BaseModel
 from time import sleep
 import os
 import requests
-from fastapi import Request
+from fastapi import Request, Depends, HTTPException
 from database import SessionLocal, engine
+from sqlalchemy.orm import Session
 from typing import List
 import models
+import schemas
+import crud
 
 broker_url = os.getenv('CELERY_BROKER_URL', 'pyamqp://guest@localhost//')
 # 앱 이름과 broker 설정(heroku상의 rabbitmq url)
@@ -18,9 +21,16 @@ models.Base.metadata.create_all(bind=engine)
 class Item(BaseModel):
     text: str
 
+class GPTRequest(BaseModel):
+    input_text: str
+    mlp_weight: float
+    attn_weight: float
+    eps_weight: float
+    url: str 
+
 # gpt에 요청하는 부분 작성해야함
 @app.task(name='tasks.gpt')
-async def gpt(request: Request):
+async def gpt(request: GPTRequest):
     json_data = await request.json()
     print(json_data)
     # response = requests.post(col)
@@ -45,18 +55,21 @@ def get_db():
         db.close()
 
 # 로그 등록하기
-@app.post("/logs", response_model=schemas.Logs)
+# @app.post("/logs", response_model=schemas.Logs)
+@app.task(name='tasks.postLog')
 def create_user(request: schemas.LogRequestDto, db: Session = Depends(get_db)):
     return crud.create_log(db=db, request=request)
 
 # 모든 로그 받기
-@app.get("/logs", response_model=List[schemas.Logs])
+# @app.get("/logs", response_model=List[schemas.Logs])
+@app.task(name='tasks.getLogs')
 def read_logs(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     logs = crud.get_logs(db, skip=skip, limit=limit)
     return logs
 
 # 하나의 로그 받기
-@app.get("/logs/{log_id}", response_model=schemas.Logs)
+# @app.get("/logs/{log_id}", response_model=schemas.Logs)
+@app.task(name='tasks.getLog')
 def read_log(log_id: int, db: Session = Depends(get_db)):
     db_log = crud.get_log(db, log_id=log_id)
     if db_log is None:
@@ -64,7 +77,8 @@ def read_log(log_id: int, db: Session = Depends(get_db)):
     return db_log
 
 # 로그 업데이트
-@app.put("/logs/{log_id}", response_model=schemas.Logs)
+# @app.put("/logs/{log_id}", response_model=schemas.Logs)
+@app.task(name='tasks.updateLog')
 def update_log(log_id: int, update_data: schemas.LogResponseDto, db: Session = Depends(get_db)):
     # CRUD 함수를 사용하여 로그 업데이트
     updated_log = crud.update_log(db=db, log_id=log_id, update_data=update_data)

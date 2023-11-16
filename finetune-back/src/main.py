@@ -99,20 +99,17 @@ def getUrl():
     return colab_url
 
 #gpt 모델 가중치 변경해서 데이터 반환
-@router.post("/gpt")
-async def call_colab_function(request: Request):
-    json_data = await request.json()
-    response = requests.post(colab_url, json=json_data)
-    return response.text
+# @router.post("/gpt")
+# async def call_colab_function(request: Request):
+#     json_data = await request.json()
+#     response = requests.post(colab_url, json=json_data)
+#     return response.text
 
 @router.post("/llama-fine-tune")
 async def call_colab_llama(request: Request):
     json_data = await request.json()
     response = requests.post(colab_url + "/llama", json=json_data)
     return response.text
-
-
-app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
 
 ###########################################################################
 ###########################################################################
@@ -132,3 +129,11 @@ def send_message(request: GPTRequest):
 @router.post("/llama")
 def receive_message():
     task = celery_app.send_task('tasks.llama', args=[])
+
+
+
+
+
+
+
+app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
