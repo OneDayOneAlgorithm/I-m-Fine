@@ -5,6 +5,7 @@
 - ### 프로젝트 개요
   
   ![](README/logo.png){: width="200" height="200"}
+  - 개발 기간: 2023.10.10 ~ 2023.11.17
   
   - `아임파인`은 pre-trained model을 파인튜닝하여 모델을 생성하고, 생성된 모델의 입출력을 보여주는 서비스입니다.
 
@@ -126,15 +127,12 @@ $ npm start
 
 ## :hammer_and_wrench: 사용된 도구
 
-* Vue.js 2.6.11
-* vue/cli 4.4.6
-* yarn 1.22.4
-* Spring boot 2.3.1
-* Gradle 6.4.1
-* IDE: Visual Studio Code 1.48, Spring Tool Suite 3
+- python 3.8
+* FastAPI
+* node 14
+- react
 * GitLab
 * Jira
-* SonarQube
 
 <br>
 <br>
@@ -152,13 +150,11 @@ $ npm start
 
 <br>
 
-- **React** : 아임파인 Project의 Web 구현
-
-<br>
-
 **[ FRONT END ]**
 
 - **React** : 아임파인 Project의 Web 구현
+
+<br>
 
 **[ TEAM Cooperation ]**
 
@@ -189,11 +185,11 @@ $ npm start
 
 ### 1. pre-trained 모델 선택
 
-![](README/choose_pretrained_model.png){: width="400" height="300"}
+![](README/choose_pretrained_model.png){: width="500" height="300"}
 
-- LLAMA2, GPT2, Stable Diffusion 모델 중 하나를 선택
-- LLAMA2, GPT2 모델은 텍스트 모델 (텍스트 입력, 텍스트 출력)
-- Stable Diffusion 모델은 이미지 모델 (텍스트 입력, 이미지 출력)
+- **[LLAMA 클릭 시] :** LLAMA2 모델의 파라미터를 조정한다.
+- **[GPT 클릭 시] :** GPT2 모델의 파라미터를 조정한다.
+- **[Stable Diffusion 클릭 시] :** Stable Diffusion 모델의 파라미터를 조정한다.
 
 ---
 
@@ -202,6 +198,7 @@ $ npm start
 ![](README/parameter.png){: width="500" height="300"}
 
 - 사용자가 텍스트 입력 후 파라미터 값 직접 조정
+- **[EPS 조정 시] :** LLAMA2 모델의 파라미터를 조정한다.
 
 ---
 
@@ -238,18 +235,7 @@ $ npm start
 <br>
 <br>
 
-## 1. 개요
-
-- 개발 기간: 2023.10.10 ~ 2023.11.17
-
-- 삼성 청년 소프트웨어 아카데미(SSAFY) 자율 프로젝트
-  
-  `#AI` `#fine-tuning`
-
-<br>
-<br>
-
-## 👤 TEAM
+## 👤 저자
 
 - 김현진 - Hyunjin Kim - [Back]
 - 김형진 - Hyungjin Kim - [Back]
