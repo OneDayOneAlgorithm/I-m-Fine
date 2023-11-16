@@ -1,6 +1,6 @@
 # 🧳 아임파인
 
-![](README/2023-11-14-16-21-03-image.png)
+![](README/logo.png){: width="300" height="300"}
 
 1. [개요](#1-개요)
 2. [프로젝트 소개](#2-프로젝트-소개)
@@ -182,30 +182,7 @@ $ npm start
     └─📁 src
 ```
 
-<details>
-<summary>Front-End</summary>
-<div markdown="1">
-
-```
-─fonts
-```
-
-</div>
-</details>
-
-<details>
-<summary>Back-End</summary>
-<div markdown="1">
-
-```
-└─src
-    ├─static
-    └─templates
-```
-
-</div>
-</details>
-
+<br>
 <br>
 
 ## 7. 시스템 아키텍쳐
