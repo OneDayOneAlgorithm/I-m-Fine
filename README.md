@@ -59,16 +59,6 @@
 
 * [저자](#-저자)
 
-* [라이센스](#page_with_curl-라이센스)
-1. [개요](#1-개요)
-2. [프로젝트 소개](#2-프로젝트-소개)
-3. [주요 기능](#3-주요-기능)
-4. [시작하기](#triangular_flag_on_post-시작하기)
-5. [기술스택](#5-기술-스택)
-6. [프로젝트 구조도](#6-프로젝트-구조도)
-7. [시스템 아키텍쳐](#7-시스템-아키텍쳐)
-8. [TEAM](#8-team)
-
 <br>
 <br>
 
@@ -146,93 +136,91 @@ $ npm start
 * Jira
 * SonarQube
 
-## :desktop_computer: 사용된 기술
+<br>
+<br>
 
-![TechStack](https://user-images.githubusercontent.com/19357410/100544132-062d1380-3297-11eb-832e-9e1dd8f8da13.png)
+## :desktop_computer: 사용된 기술
 
 **[ BACK END ]**
 
-- **Spring Boot** : Run WIth Me Project의 전반적인 Rest Controller 구현.
-- **Spring Security** : WebSecurityConfigurerAdapter를 상속받아 Filter를 적용, 사용자 권한에 맞는 기능을 수행하도록 구현. 
-- **JWT** : JSON Web Token을 활용하여 회원 인증 및 안정성있는 정보 교환을 할 수 있도록 활용.
-- **JPA (Hibernate)** : ORM인 Hibernate를 활용하여 객체 중심의 개발을 할 수 있도록 하였고, SQL을 직접 작성하지 않고 Entity 필드가 되는 객체를 통해 DB를 동작시켜 유지보수에 용이하게 활용. 
-  - 동일한 쿼리에 대한 캐시 기능을 사용하기 때문에 높은 효율성 기대
-- **SSL 프로토콜** : SSL을 적용하여 전송되는 패킷값을 암호화하여 외부의 공격자로부터 데이터를 보안하기 위해 사용.
-  - **Let’s Encrypt** 무료 인증서를 발급받아 웹서버에 SSL 인증서를 적용.
-  - Google Map API 활용 시, SSL 적용 필수.
-- **MySql** : RDBMS로 Run With Me Project의 사용자, 러닝 기록, 챌린지, 게시판 등 필요한 데이터를 저장.
-- **Redis** : 비관계형 데이터베이스로 'Key-Value' 구조 데이터 관리 시스템이며, 데이터를 메모리에 저장하여 빠른 처리속도가 필요한 기능에 적용.
-  - 채팅 서버의 채팅방, 메세지 처리를 위해 사용. (Subscribe / Publish)
-  - 만료일을 저장하면 만료 시 자동으로 데이터가 사라지는 특성을 활용하여 로그아웃된 토큰을 저장하여 블랙리스트로 활용.
-- **AWS**
-  - EC2 서비스를 이용하여 Ubuntu 서버를 구축 (호스팅).
-  - S3 서비스를 이용하여 프로필 및 러닝 기록 (Polyline)을 저장하기 위해 사용.
+- **FastAPI**  : 아임파인 Project의 전반적인 Rest Controller 구현
+- **SSL 프로토콜** : SSL을 적용하여 전ㄴ송되는 패킷값을 암호화하여 외부의 공격자로부터 데이터를 보안하기 위해 사용.
+  - Let's Encypt 무료 인증서를 발급받아 웹서버에 SSL 인증서를 적용.
+- **AWS** : EC2 서비스를 이용하여 Ubuntu 서버를 구축 (호스팅).
 - **Nginx** : 웹 서버를 구축
-- **WebSocket** : 웹 상에서 쉽게 소켓 통신을 하게 해주는 라이브러리를 활용하여 러닝 메이트 매칭, 지역별 그룹 채팅 기능을 구현.
-- **STOMP** : Http에 모델링된 frame 기반의 메세징 프로토콜을 통해 메세지 전송을 좀 더 효율적으로 하기 위해 활용.
-  - `STOMP Handler`를 구현하여 Subscribe를 통해 통신하고자 하는 주체(Topic)를 판단하여 실시간, 지속적으로 감시하고 해당 요청이 들어오면 처리하도록 구현. **(Broker 역할 수행)**
+- **Google Colab** : 파인튜닝을 하기 위한 GPU 서버.
+
+<br>
+
+- **React** : 아임파인 Project의 Web 구현
+
+<br>
 
 **[ FRONT END ]**
 
-- **Vue**
-  * **Swal (Sweet Alert)** -  다양한 기능과 디자인을 가진 Alert창을 구현.
-  * **SplideSlide** - Page를 Swap할때마다 변경되는 페이지.
-  * **carousal** - Main Page에서 다양한 이벤트를 보기 편하게 하기 위해 3D Slide형식으로 넘어가는 컴포넌트 구현.
-  * **apexChart** - 런닝 데이터 분석을 위해 사용하는 분석차트.
-  * **decode-google-map-polyline** - String으로 인코딩했던 polyline을 맵에 다시 표시하기 위해 사용.
-  * **vue-good-table** - 친구 목록이나 다양한 목록을 표현할때 사용되는 검색과 정렬기능, 페이지 기능을 사용.
-  * **vue-moment** - 시간을 DB에 저장하기위해 포맷 형식을 변경 및 DB에서 가져올 때 출력 형식 변경.
-  * **web-stomp** - 채팅기능을 위한 웹 소켓 프로그래밍, 실시간으로 채팅을 할때 사용.
-- **Google Static Map** : 실시간 위치정보를 맵에 Polyline화해서 지도이미지를 DB에 저장.
-- **Google Map** : 지도에 지속적으로 위치를 기록 및 추적하기 위해 사용.
-- **Kakao Pay** : Kakao에서 제공하는 KakaoPay기능을 이용해 모바일로 결제가 가능. 기부 챌린지 참가를 위해 원하는 금액만큼 미리 충전하여 사용.
-- **Vuex** : 여러 페이지에서 공용으로 사용하는 데이터와 함수들을 저장해서 한번에 관리, 추가적으로 JWT토큰을 스토어에 저장하여 Backend와 통신시마다 주고받으며, 2시간이 지나면 토큰이 만료되어 서비스 이용 불가. 
-- **vue apaxcharts** : 러닝 데이터를 효과적으로 시각화할 수 있도록 활용.
-  - axios 통신.
-  - 시각화 자료 이미지 파일로 변환 및 저장.
-  - 활용 사례
-    - running plant
-      - 월별 사용자 러닝 거리 기록.
-      - 거리 기록에 따라 상대적인 색 표현.
-      - 업데이트를 통한 실시간 기록 분석 가능.
-      - running analysis
-        - 지난 측정 기록 vuex 저장 및 시각화.
-        - 업데이트 기록과 비교.
-        - 사용자와 같은 티어의 사용자와 비교 분석.
+- **React** : 아임파인 Project의 Web 구현
 
 **[ TEAM Cooperation ]**
 
-- **GitLab** : GitLab을 활용하여 프로젝트를 관리.
+- **GitLab**: GitLab을 활용하여 프로젝트를 관리.
   - Git Flow 에 따른 브랜치 전략 수립.
   - MR 시 코드 리뷰 진행.
-- **Jira** : 이슈 관리 도구로 활용. 
-  - 주요 기능들을 이슈로 등록하고 Story Point를 산정한 후, 담당자를 지정하여 프로젝트를 진행.
+- **Jira**: 이슈 관리 도구로 활용.
+  - 주요 기능들을 이슈로 등록하고 Stroy Point를 산정한 후, 담당자를 지정하여 프로젝트를 진행.
   - 1~2 주 정도 상황에 맞게 스프린트를 설정.
 - **Google Drive** : 협업을 위한 공용 문서 및 산출물들을 공유할 수 있도록 활용.
   - 동시 문서 작성 (Google Docs).
-  - 대용량 파일 첨부
+  - 대용량 파일 첨부.
+- **Notion** 
+  - 일정 관리 및 트러블 슈팅 메모.
+  - 세션을 통해 새로운 지식 공유.
+ 
+<br>
+<br>
 
 ## :desktop_computer: 시스템 아키텍쳐
 
-![System_Architecture](https://user-images.githubusercontent.com/19357410/100544133-088f6d80-3297-11eb-8ba7-bad031aa6e46.png)
+![](README/architecture.png){: width="500" height="300"}
+
+<br>
+<br>
 
 ## 🎞 서비스 소개
 
-### 1. 로그인 화면
+### 1. pre-trained 모델 선택
 
-#### 1-1. 로그인 화면
+![](README/choose_pretrained_model.png){: width="400" height="300"}
 
-<img src="https://user-images.githubusercontent.com/19357410/100543558-2dceac80-3294-11eb-9d4a-51a0c0e7757b.jpg" width="30%">
+- LLAMA2, GPT2, Stable Diffusion 모델 중 하나를 선택
+- LLAMA2, GPT2 모델은 텍스트 모델 (텍스트 입력, 텍스트 출력)
+- Stable Diffusion 모델은 이미지 모델 (텍스트 입력, 이미지 출력)
+
+<br>
 
 ---
 
-### 2. 메인 화면
+### 2. 사용자 입력
 
-#### 2-1. 메인 화면
+![](README/parameter.png){: width="500" height="300"}
 
-<img src="https://user-images.githubusercontent.com/19357410/100543566-332bf700-3294-11eb-98ee-fb4c9274adf7.jpg" width="30%">  <img src="https://user-images.githubusercontent.com/19357410/100543569-3cb55f00-3294-11eb-8038-701758f0d13d.jpg" width="30%">
+- 사용자가 텍스트 입력 후 파라미터 값 직접 조정
 
-- **[메인 화면] :** 상단에는 현재 진행중인 챌린지, 중앙에는 랭킹, 하단에는 팔로우한 유저의 최신 러닝 기록을 보여준다.
+<br>
+
+### 3. 로딩 화면
+
+![](README/connecting.png){: width="300" height="300"}
+
+- 조정한 파라미터 값으로 파인튜닝 및 입력에 해당하는 답변 출력 중
+
+<br>
+
+### 4.출력 화면
+
+![](README/result.png){: width="400" height="300"}
+
+- 입력에 해당하는 답변 출력
+
 
 ---
 
