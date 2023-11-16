@@ -97,10 +97,18 @@ def update_log(log_id: int, update_data: schemas.LogResponseDto):
 
 # 모든 로그 받기
 # @app.get("/logs", response_model=List[schemas.Logs])
-# @app.task(name='tasks.getLogs')
-# def read_logs(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-#     logs = crud.get_logs(db, skip=skip, limit=limit)
-#     return logs
+@app.task(name='tasks.getLogs')
+def read_logs(skip: int = 0, limit: int = 100):
+    # 데이터베이스 세션 생성
+    db = SessionLocal()
+    try:
+        # CRUD 작업 수행
+        return crud.get_logs(db, skip=skip, limit=limit)
+
+    finally:
+        # 세션 닫기
+        db.close()
+
 
 # # 하나의 로그 받기
 # # @app.get("/logs/{log_id}", response_model=schemas.Logs)
