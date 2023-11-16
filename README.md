@@ -144,12 +144,24 @@ $ npm start
 **[ BACK END ]**
 
 - **FastAPI**  : 아임파인 Project의 전반적인 Rest Controller 구현
-- **SSL 프로토콜** : SSL을 적용하여 전ㄴ송되는 패킷값을 암호화하여 외부의 공격자로부터 데이터를 보안하기 위해 사용.
+![](README/fastapi.png){: width="600" height="300"}
+<br>
+- **RabbitMQ**  : FastAPI에서 코랩에 요청할 작업을 담을 MQ로, 브로커로 사용.
+![](README/rabbitmq.png){: width="600" height="300"}
+<br>
+- **Celery**  : RabbitMQ에 담겨있는 task를 확인하고 꺼내어 작업하기 위해 사용.
+  - Colab에서 처리하는 작업은 시간이 오래 걸리므로 긴 시간 동안 응답을 받기 위해 연결을 유지하는 것은 비효율적이기에 사용.
+- **Flower**  : Celery에서 처리하는 작업을 GUI로 확인하기 위한 라이브러리
+![](README/rabbitmq.png){: width="1200" height="300"}
+<br>
+- **SSL 프로토콜** : SSL을 적용하여 전송되는 패킷값을 암호화하여 외부의 공격자로부터 데이터를 보안하기 위해 사용.
   - Let's Encypt 무료 인증서를 발급받아 웹서버에 SSL 인증서를 적용.
 - **AWS** : EC2 서비스를 이용하여 Ubuntu 서버를 구축 (호스팅).
 - **Nginx** : 웹 서버를 구축
-- **Google Colab** : 파인튜닝을 하기 위한 GPU 서버.
+  - React, FastAPI에 reverse proxy 설정
 
+- **Google Colab** : 파인튜닝을 하기 위한 GPU 서버.
+- **Ngrok** : Colab의 서버를 외부에 노출시켜 API를 호출하기 위해 사용.
 <br>
 
 **[ FRONT END ]**
