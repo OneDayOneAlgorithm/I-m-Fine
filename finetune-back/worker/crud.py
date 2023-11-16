@@ -15,7 +15,7 @@ def create_log(db: Session, request: schemas.LogRequestDto):
     db.add(db_log)
     db.commit()
     db.refresh(db_log)
-    return db_log
+    return db_log.id
 
 def update_log(db: Session, log_id: int, update_data: schemas.LogResponseDto):
     # 해당 log_id를 가진 로그 객체를 찾습니다.

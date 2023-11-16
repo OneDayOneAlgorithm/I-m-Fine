@@ -113,27 +113,26 @@ async def call_colab_llama(request: Request):
 
 ###########################################################################
 ###########################################################################
-class GPTRequest(BaseModel):
-    input_text: str
-    mlp_weight: float
-    attn_weight: float
-    eps_weight: float
-    url: str = colab_url
+
 
 @router.post("/gpt")
-def send_message(request: GPTRequest):
+async def send_message(request: Request):
+    # JSON 데이터 추출
+    json_data = await request.json()
+    print(json_data)
     # Celery 작업 호출
-    task = celery_app.send_task('tasks.gpt', args=[request])
+    task = celery_app.send_task('tasks.gpt', args=[json_data, colab_url])
     return {"message": "Task sent", "task_id": task.id}
 
 @router.post("/llama")
-def receive_message():
-    task = celery_app.send_task('tasks.llama', args=[])
-
-
-
-
-
+async def receive_message(request: Request):
+     # JSON 데이터 추출
+    json_data = await request.json()
+    print(json_data)
+    # Celery 작업 호출
+    task = celery_app.send_task('tasks.llama', args=[json_data, colab_url])
+    return {"message": "Task sent", "task_id": task.id}
 
 
 app.include_router(router, prefix="/api")  # "/api" 접두사와 함께 router를 app에 포함
+

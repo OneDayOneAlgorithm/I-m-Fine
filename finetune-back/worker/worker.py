@@ -17,32 +17,39 @@ app = Celery('tasks', broker=broker_url)
 
 models.Base.metadata.create_all(bind=engine)
 
-
 class Item(BaseModel):
     text: str
 
-class GPTRequest(BaseModel):
-    input_text: str
-    mlp_weight: float
-    attn_weight: float
-    eps_weight: float
-    url: str 
+# class GPTRequest(BaseModel):
+#     input_text: str
+#     mlp_weight: float
+#     attn_weight: float
+#     eps_weight: float
+#     url: str 
 
 # gpt에 요청하는 부분 작성해야함
 @app.task(name='tasks.gpt')
-async def gpt(request: GPTRequest):
-    json_data = await request.json()
-    print(json_data)
-    # response = requests.post(col)
-    # print(text[::-1])
-    # return text[::-1]
+def gpt(json_data, colab_url):
+    # 질문 기록
+    id = create_logs(schemas.LogRequestDto(input_text=json_data["input_text"]))
+
+    # response = requests.post(colab_url, json=json_data)
+    response = requests.post(colab_url, json=json_data)
+    # print(json_data["input_text"])
+    # print(colab_url)
+
+    # 업데이트하는 부분 작성
+    print(response.text)
+    update_log(id, schemas.LogResponseDto(output_text=response.text))
+
 
 @app.task(name='tasks.llama')
-def reverse(text):
-    print("5 left")
-    sleep(5)
-    print(text[::-1])
-    return text[::-1]
+def llama(json_data, colab_url):
+    id = create_logs(schemas.LogRequestDto(input_text=json_data["input_text"]))
+
+    response = requests.post(colab_url + "/llama", json=json_data)
+    print(response.text)
+    update_log(id, schemas.LogResponseDto(output_text=response.text))
 
 ####################################################### DB 접근
 ####################################################### 참고해서 코드 작성
@@ -56,35 +63,51 @@ def get_db():
 
 # 로그 등록하기
 # @app.post("/logs", response_model=schemas.Logs)
-@app.task(name='tasks.postLog')
-def create_user(request: schemas.LogRequestDto, db: Session = Depends(get_db)):
-    return crud.create_log(db=db, request=request)
-
-# 모든 로그 받기
-# @app.get("/logs", response_model=List[schemas.Logs])
-@app.task(name='tasks.getLogs')
-def read_logs(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    logs = crud.get_logs(db, skip=skip, limit=limit)
-    return logs
-
-# 하나의 로그 받기
-# @app.get("/logs/{log_id}", response_model=schemas.Logs)
-@app.task(name='tasks.getLog')
-def read_log(log_id: int, db: Session = Depends(get_db)):
-    db_log = crud.get_log(db, log_id=log_id)
-    if db_log is None:
-        raise HTTPException(status_code=404, detail="Log not found")
-    return db_log
+def create_logs(request: schemas.LogRequestDto):
+    # 데이터베이스 세션 생성
+    db = SessionLocal()
+    try:
+        # CRUD 작업 수행
+        return crud.create_log(db=db, request=request)
+    finally:
+        # 세션 닫기
+        db.close()
 
 # 로그 업데이트
 # @app.put("/logs/{log_id}", response_model=schemas.Logs)
-@app.task(name='tasks.updateLog')
-def update_log(log_id: int, update_data: schemas.LogResponseDto, db: Session = Depends(get_db)):
-    # CRUD 함수를 사용하여 로그 업데이트
-    updated_log = crud.update_log(db=db, log_id=log_id, update_data=update_data)
+# @app.task(name='tasks.updateLog')
+def update_log(log_id: int, update_data: schemas.LogResponseDto):
+    # 데이터베이스 세션 생성
+    db = SessionLocal()
+    try:
+        # CRUD 작업 수행
+        return crud.update_log(db=db, log_id=log_id, update_data=update_data)
+    finally:
+        # 세션 닫기
+        db.close()
 
-    # 업데이트된 로그가 없는 경우 오류 발생
-    if updated_log is None:
-        raise HTTPException(status_code=404, detail="Log not found")
+    # # CRUD 함수를 사용하여 로그 업데이트
+    # updated_log = 
 
-    return updated_log
+    # # 업데이트된 로그가 없는 경우 오류 발생
+    # if updated_log is None:
+    #     raise HTTPException(status_code=404, detail="Log not found")
+
+    # return updated_log
+
+# 모든 로그 받기
+# @app.get("/logs", response_model=List[schemas.Logs])
+# @app.task(name='tasks.getLogs')
+# def read_logs(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+#     logs = crud.get_logs(db, skip=skip, limit=limit)
+#     return logs
+
+# # 하나의 로그 받기
+# # @app.get("/logs/{log_id}", response_model=schemas.Logs)
+# @app.task(name='tasks.getLog')
+# def read_log(log_id: int, db: Session = Depends(get_db)):
+#     db_log = crud.get_log(db, log_id=log_id)
+#     if db_log is None:
+#         raise HTTPException(status_code=404, detail="Log not found")
+#     return db_log
+
