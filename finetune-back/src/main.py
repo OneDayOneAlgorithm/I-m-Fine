@@ -6,7 +6,6 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import os
 import pika
-import models
 from celery import Celery
 from celery.result import AsyncResult
 
