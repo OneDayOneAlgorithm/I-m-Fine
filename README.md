@@ -159,7 +159,7 @@ $ npm start
 <br>
 - **Mysql**  : 요청한 로그 저장용도
 
-![](README/mysql.png){: width="1200" height="300"}
+![](README/mysql.png){: width="900" height="300"}
 <br>
 - **SSL 프로토콜** : SSL을 적용하여 전송되는 패킷값을 암호화하여 외부의 공격자로부터 데이터를 보안하기 위해 사용.
   - Let's Encypt 무료 인증서를 발급받아 웹서버에 SSL 인증서를 적용.
@@ -197,7 +197,7 @@ $ npm start
 
 ## :desktop_computer: 시스템 아키텍쳐
 
-![](README/architecture.png){: width="500" height="300"}
+![](README/architecture.png){: width="600" height="300"}
 
 <br>
 <br>
