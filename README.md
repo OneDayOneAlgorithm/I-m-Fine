@@ -194,7 +194,7 @@ $ npm start
 <br>
 <br>
 
-## 8. TEAM
+## 8. TEAM 👤
 
 - 김현진 - Hyunjin Kim - [Back]
 - 김형진 - Hyungjin Kim - [Back]
