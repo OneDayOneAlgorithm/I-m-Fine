@@ -5,6 +5,7 @@
 - ### 프로젝트 개요
   
   ![](README/logo.png){: width="200" height="200"}
+  
   - 개발 기간: 2023.10.10 ~ 2023.11.17
   
   - `아임파인`은 pre-trained model을 파인튜닝하여 모델을 생성하고, 생성된 모델의 입출력을 보여주는 서비스입니다.
@@ -25,7 +26,7 @@
   
   - **Stable Diffusion**
     
-    > 1) 1020개의 레이어 중 **102개의 레이어**의 파라미터를 조정하여 파인튜닝한다. 
+    > 1) 1133개의 레이어 중 **143개의 레이어**의 파라미터를 조정하여 파인튜닝한다. 
     > 
     > 2) 텍스트를 입력하고, 파인튜닝 된 모델에서의 **이미지 결과**를 확인할 수 있다.
 
@@ -55,8 +56,6 @@
 * [시스템 아키텍쳐](#desktop_computer-시스템-아키텍쳐)
 
 * [서비스 소개](#-서비스-소개)
-
-* [일정](#calendar-일정)
 
 * [저자](#-저자)
 
@@ -127,10 +126,10 @@ $ npm start
 
 ## :hammer_and_wrench: 사용된 도구
 
-- python 3.8
+* python 3.8
 * FastAPI
 * node 14
-- react
+* react
 * GitLab
 * Jira
 
@@ -170,7 +169,7 @@ $ npm start
 - **Notion** 
   - 일정 관리 및 트러블 슈팅 메모.
   - 세션을 통해 새로운 지식 공유.
- 
+
 <br>
 <br>
 
@@ -215,22 +214,6 @@ $ npm start
 ![](README/result.png){: width="400" height="300"}
 
 - 입력에 해당하는 답변 출력
-
-
----
-
-#### 2-2. 메인 화면에서 랭커 클릭
-
-<img src="https://user-images.githubusercontent.com/19357410/100543571-3de68c00-3294-11eb-8dce-13ead347632a.jpg" width="30%">  <img src="https://user-images.githubusercontent.com/19357410/100543578-46d75d80-3294-11eb-9855-00c81a701ecc.jpg" width="30%">
-
-- **[메인 화면에서 랭커 클릭 시] :** 선택한 유저의 간단한 프로필, 팔로우 여부, 러닝 기록을 보여준다.
-- **[랭커 프로필에서 러닝 피드 클릭 시] :** 유저의 해당 러닝 상세 기록을 보여준다.
-
----
-
-## :calendar: 일정
-
-![일정](https://user-images.githubusercontent.com/19357410/100542772-7d5ea980-328f-11eb-806c-4bd76138aa1e.png)
 
 <br>
 <br>
