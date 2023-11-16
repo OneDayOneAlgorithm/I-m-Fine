@@ -2,11 +2,11 @@
 
 ![Github](https://img.shields.io/badge/vue-2.6.11-%234FC08D?style=plastic&logo=Vue.js)![Github](https://img.shields.io/badge/spring_boot-2.3.1-%236DB33F?style=plastic&logo=Spring)![Github](https://img.shields.io/badge/MySQL-8.0-%234479A1?style=plastic&logo=mysql)![Github](https://img.shields.io/badge/Redis-3.0-%23DC382D?style=plastic&logo=Redis)![Github](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
 
-## 😊 아임파인 😊
+## :sunny: 아임파인 😊
 
 - ### 프로젝트 개요
   
-  ![](README/logo.png){: width="300" height="300"}
+  ![](README/logo.png){: width="200" height="200"}
   
   - `아임파인`은 pre-trained model을 파인튜닝하여 모델을 생성하고, 생성된 모델의 입출력을 보여주는 서비스입니다.
 
@@ -38,7 +38,7 @@
 
 ## 📌 목차
 
-[Run With Me ? 🏃](#triangular_flag_on_post-run-with-me--%EF%B8%8F) 
+[Run With Me ? 🏃](#:sunny: 아임파인 😊) 
 
 * [시작하기](#🚩-시작하기)
   
