@@ -1,4 +1,5 @@
-# 아임파인 😊![Github](https://img.shields.io/badge/vue-2.6.11-%234FC08D?style=plastic&logo=Vue.js)![Github](https://img.shields.io/badge/spring_boot-2.3.1-%236DB33F?style=plastic&logo=Spring)![Github](https://img.shields.io/badge/MySQL-8.0-%234479A1?style=plastic&logo=mysql)![Github](https://img.shields.io/badge/Redis-3.0-%23DC382D?style=plastic&logo=Redis)![Github](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
+# 아임파인 😊
+![Github](https://img.shields.io/badge/vue-2.6.11-%234FC08D?style=plastic&logo=Vue.js)![Github](https://img.shields.io/badge/spring_boot-2.3.1-%236DB33F?style=plastic&logo=Spring)![Github](https://img.shields.io/badge/MySQL-8.0-%234479A1?style=plastic&logo=mysql)![Github](https://img.shields.io/badge/Redis-3.0-%23DC382D?style=plastic&logo=Redis)![Github](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
 
 ## :rainbow: 아임파인 :blush:
 
@@ -41,11 +42,6 @@
 [아임파인 😊](#rainbow-아임파인-blush) 
 
 * [시작하기](#triangular_flag_on_post-시작하기)
-  
-  * [시작하기에 앞서](#시작하기에-앞서)
-  * [설치하기](#설치하기)
-  * [실행하기](#실행하기)
-  * [배포하기](#배포하기)
 
 * [지원하는 브라우저](#globe_with_meridians-지원하는-브라우저)
 
@@ -197,7 +193,9 @@ $ npm start
 ![](README/parameter.png){: width="500" height="300"}
 
 - 사용자가 텍스트 입력 후 파라미터 값 직접 조정
-- **[EPS 조정 시] :** LLAMA2 모델의 파라미터를 조정한다.
+- **[EPS 조정 시] :** 데이터 의존성 조정.
+- **[ATTN 조정 시] :** 단어 간 순서 의존성 조정.
+- **[MLP 조정 시] :** 단어 간 연관성 조정.
 
 ---
 
@@ -205,7 +203,7 @@ $ npm start
 
 ![](README/connecting.png){: width="300" height="300"}
 
-- 조정한 파라미터 값으로 파인튜닝 및 입력에 해당하는 답변 출력 중
+- 조정한 파라미터 값으로 파인튜닝 및 입력에 해당하는 답변 출력 대기.
 
 ---
 
@@ -213,7 +211,7 @@ $ npm start
 
 ![](README/result.png){: width="400" height="300"}
 
-- 입력에 해당하는 답변 출력
+- 파인튜닝 된 모델의 답변 출력.
 
 <br>
 <br>
