@@ -11,7 +11,7 @@
 
 - ### 프로젝트 개요
   
-  ![](README/logo.png){: width="200" height="200"}
+  <img src="./README/logo.png"  width="200" height="200">
  
   - `아임파인`은 pre-trained model을 파인튜닝하여 모델을 생성하고, 생성된 모델의 입출력을 보여주는 서비스입니다.
 
@@ -145,21 +145,21 @@ $ npm start
 
 - **FastAPI**  : 아임파인 Project의 전반적인 Rest Controller 구현
 
-![](README/fastapi.png){: width="600" height="300"}
+<img src="./README/fastapi.png"  width="600" height="300">
 <br>
 - **RabbitMQ**  : FastAPI에서 코랩에 요청할 작업을 담을 MQ로, 브로커로 사용.
 
-![](README/rabbit.png){: width="600" height="300"}
+<img src="./README/rabbit.png"  width="600" height="300">
 <br>
 - **Celery**  : RabbitMQ에 담겨있는 task를 확인하고 꺼내어 작업하기 위해 사용.
   - Colab에서 처리하는 작업은 시간이 오래 걸리므로 긴 시간 동안 응답을 받기 위해 연결을 유지하는 것은 비효율적이기에 사용.
 - **Flower**  : Celery에서 처리하는 작업을 GUI로 확인하기 위한 라이브러리
 
-![](README/flower.png){: width="1200" height="300"}
+<img src="./README/flower.png"  width="1200" height="300">
 <br>
 - **Mysql**  : 요청한 로그 저장용도
 
-![](README/mysql.png){: width="900" height="300"}
+<img src="./README/mysql.png"  width="900" height="300">
 <br>
 - **SSL 프로토콜** : SSL을 적용하여 전송되는 패킷값을 암호화하여 외부의 공격자로부터 데이터를 보안하기 위해 사용.
   - Let's Encypt 무료 인증서를 발급받아 웹서버에 SSL 인증서를 적용.
@@ -197,7 +197,7 @@ $ npm start
 
 ## :desktop_computer: 시스템 아키텍쳐
 
-![](README/architecture.png){: width="600" height="300"}
+<img src="./README/architecture.png"  width="600" height="300">
 
 <br>
 <br>
@@ -206,7 +206,7 @@ $ npm start
 
 ### 1. pre-trained 모델 선택
 
-![](README/choose_pretrained_model.png){: width="500" height="300"}
+<img src="./README/choose_pretrained_model.png"  width="500" height="300">
 
 - **[LLAMA 클릭 시] :** LLAMA2 모델의 파라미터를 조정한다.
 - **[GPT 클릭 시] :** GPT2 모델의 파라미터를 조정한다.
@@ -216,7 +216,7 @@ $ npm start
 
 ### 2. 사용자 입력
 
-![](README/parameter.png){: width="500" height="300"}
+<img src="./README/parameter.png"  width="500" height="300">
 
 - 사용자가 텍스트 입력 후 파라미터 값 직접 조정
 - **[EPS 조정 시] :** 데이터 의존성 조정.
@@ -227,7 +227,7 @@ $ npm start
 
 ### 3. 로딩 화면
 
-![](README/connecting.png){: width="300" height="300"}
+<img src="./README/connecting.png"  width="300" height="300">
 
 - 조정한 파라미터 값으로 파인튜닝 및 입력에 해당하는 답변 출력 대기.
 
@@ -235,7 +235,7 @@ $ npm start
 
 ### 4.출력 화면
 
-![](README/result.png){: width="400" height="300"}
+<img src="./README/result.png"  width="400" height="300">
 
 - 파인튜닝 된 모델의 답변 출력.
 
